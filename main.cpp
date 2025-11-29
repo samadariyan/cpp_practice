@@ -55,8 +55,15 @@ import utilities; // Import the utilities module
 
 int main(){
 
-    fmt::println("Hello, World!");
-    do_work(); // snake_case
+    fmt::print("Hello, ");
+    fmt::print("World!");
+
+    int num1 = {5};
+    int num2 = {7};
+    int sum = {num1 + num2};
+
+    fmt::print("\nThe sum of {} and {} is {}\n", num1, num2, sum);
+    do_work();
 
     return 0;
 }
