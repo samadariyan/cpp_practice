@@ -4,6 +4,5 @@
   "dependencies": [
     "fmt",
     "sfml"
-  ],
-  "builtin-baseline": "4e08971f3ddc13018ca858a692efe92d3b6b9fce"
+  ]
 }
