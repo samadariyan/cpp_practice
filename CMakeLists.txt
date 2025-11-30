@@ -4,13 +4,13 @@ cmake_minimum_required(VERSION 3.28)
 set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" CACHE STRING "Vcpkg toolchain file")
 
 # The project name is set here. In this case it's Rocket, but you can change it to whatever you want.
-project(Rocket  VERSION 1.0.0 LANGUAGES CXX)
+project(Rocket VERSION 1.0.0 LANGUAGES CXX)
 
 # Require C++23
 set(CXX_STANDARD_REQUIRED ON) #Make C++23 a hard requirement
 set(CMAKE_CXX_STANDARD 23) # Default C++ standard for targets
 set(CMAKE_CXX_SCAN_FOR_MODULES ON)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+# set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 find_package(fmt CONFIG REQUIRED)
 find_package(SFML COMPONENTS Network Graphics Window Audio System CONFIG REQUIRED)
@@ -30,7 +30,7 @@ add_executable(${PROJECT_NAME} main.cpp)
 target_sources(${PROJECT_NAME}
         PUBLIC
         FILE_SET CXX_MODULES FILES
-        utilities.ixx 
+        utilities.ixx
 )
 
 target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt SFML::Network SFML::Graphics SFML::Window SFML::Audio SFML::System)

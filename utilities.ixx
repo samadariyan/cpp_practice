@@ -1,23 +1,25 @@
 module;
 
-#include <fmt/format.h> //Global module fragment
+#include <SFML/Graphics.hpp>
+
 
 export module utilities; // Module definition
 
 // Module purview
-export int add_number(int first_parameter, int second_parameter) {
-  return first_parameter + second_parameter;
-}
+export void app() {
+  auto window =
+      sf::RenderWindow(sf::VideoMode({200u, 200u}), "CMake SFML Project");
+  window.setFramerateLimit(144);
 
-export void do_work() {
-  fmt::print("Hello");
-  fmt::print("World");
-  fmt::print("\n"); // This prints a new line character
+  while (window.isOpen()) {
+    while (const std::optional event = window.pollEvent()) {
+      if (event->is<sf::Event::Closed>()) {
+        window.close();
+      }
+    }
 
-  int num1{5};
-  int num2{6};
-  // int result = num1 + num2;
-  int result = add_number(num1, num2);
-  fmt::println("Result: {}", result);
-  fmt::println("Doing something inside do_work");
+    window.clear();
+    window.draw(sf::CircleShape(100.f));
+    window.display();
+  }
 }
