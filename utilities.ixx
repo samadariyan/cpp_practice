@@ -1,5 +1,64 @@
 module;
 
+#include <SFML/Graphics.hpp> // Global module fragment
+
+export module utilities;
+
+export void app() {
+
+  sf::RenderWindow window(sf::VideoMode({200, 200}), "SFML works!");
+  sf::CircleShape shape(100.f);
+  shape.setFillColor(sf::Color::Green);
+
+  while (window.isOpen()) {
+    // Process events
+    while (const std::optional event = window.pollEvent()) {
+      // Close window: exit
+      if (event->is<sf::Event::Closed>())
+        window.close();
+    }
+
+    window.clear();
+    window.draw(shape);
+    window.display();
+  }
+}
+
+/*
+
+  // Load a sprite to display
+  const sf::Texture texture("cute_image.jpg");
+  sf::Sprite sprite(texture);
+
+  // Create a graphical text to display
+  const sf::Font font("arial.ttf");
+  sf::Text text(font, "Hello SFML", 50);
+
+  // Load a music to play
+  sf::Music music("nice_music.ogg");
+
+  // Play the music
+  music.play();
+
+  // Start the game loop
+
+    // Clear screen
+    window.clear();
+
+    // Draw the sprite
+    window.draw(sprite);
+
+    // Draw the string
+    window.draw(text);
+
+    // Update the window
+    window.display();
+  }
+*/
+
+/*
+module;
+
 #include <fmt/format.h>
 #include <iomanip>
 #include <ios>
@@ -129,290 +188,290 @@ export void output_formatting() {
   std::setw(10) << "Robinson" << std::setw(5) << "29" << std::endl;
   */
 
-  /**
-       std::cout << "Formatted table with variables: " << std::endl;
-       int col_width{ 14 };
+/**
+     std::cout << "Formatted table with variables: " << std::endl;
+     int col_width{ 14 };
 
-       std::cout << std::setw(col_width) << "Lastname" << std::setw(col_width)
-     << "Firstname" << std::setw(col_width / 2)
-               << "Age" << std::endl;
-       std::cout << std::setw(col_width) << "Daniel" << std::setw(col_width) <<
-     "Gray" << std::setw(col_width / 2) << "25"
-               << std::endl;
-       std::cout << std::setw(col_width) << "Stanley" << std::setw(col_width) <<
-     "Woods" << std::setw(col_width / 2) << "33"
-               << std::endl;
-       std::cout << std::setw(col_width) << "Jordan" << std::setw(col_width) <<
-     "Parker" << std::setw(col_width / 2) << "45"
-               << std::endl;
-       std::cout << std::setw(col_width) << "Joe" << std::setw(col_width) <<
-     "Ball" << std::setw(col_width / 2) << "21"
-               << std::endl;
-       std::cout << std::setw(col_width) << "Josh" << std::setw(col_width) <<
-     "Carr" << std::setw(col_width / 2) << "27"
-               << std::endl;
-       std::cout << std::setw(col_width) << "Izaiah" << std::setw(col_width) <<
-     "Robinson" << std::setw(col_width / 2)
-               << "29" << std::endl;
-   */
+     std::cout << std::setw(col_width) << "Lastname" << std::setw(col_width)
+   << "Firstname" << std::setw(col_width / 2)
+             << "Age" << std::endl;
+     std::cout << std::setw(col_width) << "Daniel" << std::setw(col_width) <<
+   "Gray" << std::setw(col_width / 2) << "25"
+             << std::endl;
+     std::cout << std::setw(col_width) << "Stanley" << std::setw(col_width) <<
+   "Woods" << std::setw(col_width / 2) << "33"
+             << std::endl;
+     std::cout << std::setw(col_width) << "Jordan" << std::setw(col_width) <<
+   "Parker" << std::setw(col_width / 2) << "45"
+             << std::endl;
+     std::cout << std::setw(col_width) << "Joe" << std::setw(col_width) <<
+   "Ball" << std::setw(col_width / 2) << "21"
+             << std::endl;
+     std::cout << std::setw(col_width) << "Josh" << std::setw(col_width) <<
+   "Carr" << std::setw(col_width / 2) << "27"
+             << std::endl;
+     std::cout << std::setw(col_width) << "Izaiah" << std::setw(col_width) <<
+   "Robinson" << std::setw(col_width / 2)
+             << "29" << std::endl;
+ */
 
-  //===================================================================
+//===================================================================
 
-  // Justify : Values can be justified in their fields. There are three
-  // manipulators
-  //           for adjusting the justification: left, right, and internal.
+// Justify : Values can be justified in their fields. There are three
+// manipulators
+//           for adjusting the justification: left, right, and internal.
 
-  // right justified
-  /*
-      std::cout << std::endl;
-      std::cout << "Right justified table (default) :  " << std::endl;
-      int col_width = 20;
-      std::cout << std::right; // Right justify
-      std::cout << std::setw(col_width) << "Lastname" <<
-                              std::setw(col_width) << "Firstname" <<
-                              std::setw(col_width / 2) << "Age" << std::endl;
-      std::cout << std::setw(col_width) << "Daniel" <<
-                              std::setw(col_width) << "Gray" <<
-                              std::setw(col_width / 2) << "25" << std::endl;
-      std::cout << std::setw(col_width) << "Stanley" <<
-                              std::setw(col_width) << "Woods" <<
-                              std::setw(col_width / 2) << "33" << std::endl;
-      std::cout << std::setw(col_width) << "Jordan" <<
-                              std::setw(col_width) << "Parker" <<
-                              std::setw(col_width / 2) << "45" << std::endl;
-      std::cout << std::setw(col_width) << "Joe" <<
-                              std::setw(col_width) << "Ball" <<
-                              std::setw(col_width / 2) << "21" << std::endl;
-      std::cout << std::setw(col_width) << "Josh" <<
-                              std::setw(col_width) << "Carr" <<
-                              std::setw(col_width / 2) << "27" << std::endl;
-      std::cout << std::setw(col_width) << "Izaiah" <<
-                              std::setw(col_width) << "Robinson" <<
-                              std::setw(col_width / 2) << "29" << std::endl;
+// right justified
+/*
+    std::cout << std::endl;
+    std::cout << "Right justified table (default) :  " << std::endl;
+    int col_width = 20;
+    std::cout << std::right; // Right justify
+    std::cout << std::setw(col_width) << "Lastname" <<
+                            std::setw(col_width) << "Firstname" <<
+                            std::setw(col_width / 2) << "Age" << std::endl;
+    std::cout << std::setw(col_width) << "Daniel" <<
+                            std::setw(col_width) << "Gray" <<
+                            std::setw(col_width / 2) << "25" << std::endl;
+    std::cout << std::setw(col_width) << "Stanley" <<
+                            std::setw(col_width) << "Woods" <<
+                            std::setw(col_width / 2) << "33" << std::endl;
+    std::cout << std::setw(col_width) << "Jordan" <<
+                            std::setw(col_width) << "Parker" <<
+                            std::setw(col_width / 2) << "45" << std::endl;
+    std::cout << std::setw(col_width) << "Joe" <<
+                            std::setw(col_width) << "Ball" <<
+                            std::setw(col_width / 2) << "21" << std::endl;
+    std::cout << std::setw(col_width) << "Josh" <<
+                            std::setw(col_width) << "Carr" <<
+                            std::setw(col_width / 2) << "27" << std::endl;
+    std::cout << std::setw(col_width) << "Izaiah" <<
+                            std::setw(col_width) << "Robinson" <<
+                            std::setw(col_width / 2) << "29" << std::endl;
 
-  // Left justified
-      std::cout << std::endl;
-      std::cout << "Left justified table :  " << std::endl;
+// Left justified
+    std::cout << std::endl;
+    std::cout << "Left justified table :  " << std::endl;
 
-      col_width = 20;
+    col_width = 20;
 
-      std::cout << std::left;
-      std::cout << std::setw(col_width) << "Lastname" <<
-                              std::setw(col_width) << "Firstname" <<
-                              std::setw(col_width / 2)<< "Age" << std::endl;
-      std::cout << std::setw(col_width) << "Daniel" <<
-                              std::setw(col_width) << "Gray" <<
-                              std::setw(col_width / 2) << "25"<< std::endl;
-      std::cout << std::setw(col_width) << "Stanley" <<
-                              std::setw(col_width) << "Woods" <<
-                              std::setw(col_width / 2) << "33" << std::endl;
-      std::cout << std::setw(col_width) << "Jordan" <<
-                              std::setw(col_width) << "Parker" <<
-                              std::setw(col_width / 2) << "45" << std::endl;
-      std::cout << std::setw(col_width) << "Joe" <<
-                              std::setw(col_width) << "Ball" <<
-                              std::setw(col_width / 2) << "21"<< std::endl;
-      std::cout << std::setw(col_width) << "Josh" <<
-                              std::setw(col_width) << "Carr" <<
-                              std::setw(col_width / 2) << "27"<< std::endl;
-      std::cout << std::setw(col_width) << "Izaiah" <<
-                              std::setw(col_width) << "Robinson" <<
-                              std::setw(col_width / 2)<< "29" << std::endl;
+    std::cout << std::left;
+    std::cout << std::setw(col_width) << "Lastname" <<
+                            std::setw(col_width) << "Firstname" <<
+                            std::setw(col_width / 2)<< "Age" << std::endl;
+    std::cout << std::setw(col_width) << "Daniel" <<
+                            std::setw(col_width) << "Gray" <<
+                            std::setw(col_width / 2) << "25"<< std::endl;
+    std::cout << std::setw(col_width) << "Stanley" <<
+                            std::setw(col_width) << "Woods" <<
+                            std::setw(col_width / 2) << "33" << std::endl;
+    std::cout << std::setw(col_width) << "Jordan" <<
+                            std::setw(col_width) << "Parker" <<
+                            std::setw(col_width / 2) << "45" << std::endl;
+    std::cout << std::setw(col_width) << "Joe" <<
+                            std::setw(col_width) << "Ball" <<
+                            std::setw(col_width / 2) << "21"<< std::endl;
+    std::cout << std::setw(col_width) << "Josh" <<
+                            std::setw(col_width) << "Carr" <<
+                            std::setw(col_width / 2) << "27"<< std::endl;
+    std::cout << std::setw(col_width) << "Izaiah" <<
+                            std::setw(col_width) << "Robinson" <<
+                            std::setw(col_width / 2)<< "29" << std::endl;
 
 
-  // Internal justified : sign is left justified , data is right justified
-      std::cout << std::endl;
-      std::cout << "Internal justified : " << std::endl;
-      std::cout << std::right;
-      std::cout << std::setw(10) << -123.45 << std::endl;
-      std::cout << std::internal;
-      std::cout << std::setw(10) << -123.45 << std::endl;
-  */
+// Internal justified : sign is left justified , data is right justified
+    std::cout << std::endl;
+    std::cout << "Internal justified : " << std::endl;
+    std::cout << std::right;
+    std::cout << std::setw(10) << -123.45 << std::endl;
+    std::cout << std::internal;
+    std::cout << std::setw(10) << -123.45 << std::endl;
+*/
 
-  //===================================================================
-  // Fill characters: std::setfill
-  /*
+//===================================================================
+// Fill characters: std::setfill
+/*
 
-      std::cout << std::endl;
-      std::cout << "Table with fill characters :  " << std::endl;
+    std::cout << std::endl;
+    std::cout << "Table with fill characters :  " << std::endl;
 
-      unsigned col_width = 20;
+    unsigned col_width = 20;
 
-  std::cout << std::left;
-  std::cout << std::setfill('*'); // Fill character
+std::cout << std::left;
+std::cout << std::setfill('*'); // Fill character
 
-  // First row (headers)
-  std::cout << std::setw(col_width) << "Lastname"
-            << std::setw(col_width) << "Firstname"
-            << std::setw(col_width / 2) << "Age"
-            << std::endl;
+// First row (headers)
+std::cout << std::setw(col_width) << "Lastname"
+          << std::setw(col_width) << "Firstname"
+          << std::setw(col_width / 2) << "Age"
+          << std::endl;
 
-  // Data rows
-  std::cout << std::setw(col_width) << "Daniel"
-            << std::setw(col_width) << "Gray"
-            << std::setw(col_width / 2) << "25"
-            << std::endl;
+// Data rows
+std::cout << std::setw(col_width) << "Daniel"
+          << std::setw(col_width) << "Gray"
+          << std::setw(col_width / 2) << "25"
+          << std::endl;
 
-  std::cout << std::setw(col_width) << "Stanley"
-            << std::setw(col_width) << "Woods"
-            << std::setw(col_width / 2) << "33"
-            << std::endl;
+std::cout << std::setw(col_width) << "Stanley"
+          << std::setw(col_width) << "Woods"
+          << std::setw(col_width / 2) << "33"
+          << std::endl;
 
-  std::cout << std::setw(col_width) << "Jordan"
-            << std::setw(col_width) << "Parker"
-            << std::setw(col_width / 2) << "45"
-            << std::endl;
+std::cout << std::setw(col_width) << "Jordan"
+          << std::setw(col_width) << "Parker"
+          << std::setw(col_width / 2) << "45"
+          << std::endl;
 
-  std::cout << std::setw(col_width) << "Joe"
-            << std::setw(col_width) << "Ball"
-            << std::setw(col_width / 2) << "21"
-            << std::endl;
+std::cout << std::setw(col_width) << "Joe"
+          << std::setw(col_width) << "Ball"
+          << std::setw(col_width / 2) << "21"
+          << std::endl;
 
-  std::cout << std::setw(col_width) << "Josh"
-            << std::setw(col_width) << "Carr"
-            << std::setw(col_width / 2) << "27"
-            << std::endl;
+std::cout << std::setw(col_width) << "Josh"
+          << std::setw(col_width) << "Carr"
+          << std::setw(col_width / 2) << "27"
+          << std::endl;
 
-  std::cout << std::setw(col_width) << "Izaiah"
-            << std::setw(col_width) << "Robinson"
-            << std::setw(col_width / 2) << "29"
-            << std::endl;
-  */
+std::cout << std::setw(col_width) << "Izaiah"
+          << std::setw(col_width) << "Robinson"
+          << std::setw(col_width / 2) << "29"
+          << std::endl;
+*/
 
-  //===================================================================
-  // boolalpha and noboolapha : control bool output format : 1/0 or true/false
-  /*
-      bool condition{ true };
-      bool other_condition{ false };
+//===================================================================
+// boolalpha and noboolapha : control bool output format : 1/0 or true/false
+/*
+    bool condition{ true };
+    bool other_condition{ false };
 
-      std::cout << "condition : " << condition << std::endl;
-      std::cout << "other_condition : " << other_condition << std::endl;
+    std::cout << "condition : " << condition << std::endl;
+    std::cout << "other_condition : " << other_condition << std::endl;
 
-      std::cout << std::endl;
-      std::cout << std::boolalpha;
-      std::cout << "condition : " << condition << std::endl;
-      std::cout << "other_condition : " << other_condition << std::endl;
+    std::cout << std::endl;
+    std::cout << std::boolalpha;
+    std::cout << "condition : " << condition << std::endl;
+    std::cout << "other_condition : " << other_condition << std::endl;
 
-      std::cout << std::endl;
-      std::cout << std::noboolalpha;
-      std::cout << "condition : " << condition << std::endl;
-      std::cout << "other_condition : " << other_condition << std::endl;
-  */
+    std::cout << std::endl;
+    std::cout << std::noboolalpha;
+    std::cout << "condition : " << condition << std::endl;
+    std::cout << "other_condition : " << other_condition << std::endl;
+*/
 
-  //===================================================================
+//===================================================================
 
-  // showpos and noshowpos : show or hide the +  sign for positive numbers
-  /*
-      int pos_num{ 34 };
-      int neg_num{ -45 };
+// showpos and noshowpos : show or hide the +  sign for positive numbers
+/*
+    int pos_num{ 34 };
+    int neg_num{ -45 };
 
-      std::cout << "pos_num : " << pos_num << std::endl;
-      std::cout << "neg_num : " << neg_num << std::endl;
+    std::cout << "pos_num : " << pos_num << std::endl;
+    std::cout << "neg_num : " << neg_num << std::endl;
 
-      std::cout << std::endl;
-      std::cout << std::showpos;
-      std::cout << "pos_num : " << pos_num << std::endl;
-      std::cout << "neg_num : " << neg_num << std::endl;
+    std::cout << std::endl;
+    std::cout << std::showpos;
+    std::cout << "pos_num : " << pos_num << std::endl;
+    std::cout << "neg_num : " << neg_num << std::endl;
 
-      std::cout << std::endl;
-      std::cout << std::noshowpos;
-      std::cout << "pos_num : " << pos_num << std::endl;
-      std::cout << "neg_num : " << neg_num << std::endl;
-  */
+    std::cout << std::endl;
+    std::cout << std::noshowpos;
+    std::cout << "pos_num : " << pos_num << std::endl;
+    std::cout << "neg_num : " << neg_num << std::endl;
+*/
 
-  //===================================================================
+//===================================================================
 
-  // uppercase and nouppercase
-  /*
-      int pos_int = 717171;
+// uppercase and nouppercase
+/*
+    int pos_int = 717171;
 
-      std::cout << "pos_int (nouppercase : default) : " << std::endl;
-      std::cout << "pos_int (dec) : " << std::dec << pos_int << std::endl;
-      std::cout << "pos_int (hex) : " << std::hex << pos_int << std::endl;
-      std::cout << "pos_int (oct) : " << std::oct << pos_int << std::endl;
+    std::cout << "pos_int (nouppercase : default) : " << std::endl;
+    std::cout << "pos_int (dec) : " << std::dec << pos_int << std::endl;
+    std::cout << "pos_int (hex) : " << std::hex << pos_int << std::endl;
+    std::cout << "pos_int (oct) : " << std::oct << pos_int << std::endl;
 
-      std::cout << std::endl;
-      std::cout << "pos_int (uppercase) : " << std::endl;
-      std::cout << std::uppercase;
-      std::cout << "pos_int (dec) : " << std::dec << pos_int << std::endl;
-      std::cout << "pos_int (hex) : " << std::hex << pos_int << std::endl;
-      std::cout << "pos_int (oct) : " << std::oct << pos_int << std::endl;
-  */
-  //===================================================================
+    std::cout << std::endl;
+    std::cout << "pos_int (uppercase) : " << std::endl;
+    std::cout << std::uppercase;
+    std::cout << "pos_int (dec) : " << std::dec << pos_int << std::endl;
+    std::cout << "pos_int (hex) : " << std::hex << pos_int << std::endl;
+    std::cout << "pos_int (oct) : " << std::oct << pos_int << std::endl;
+*/
+//===================================================================
 
-  // fixed and scientific : for floating point values
-  /*
-      double a{ 3.1415926535897932384626433832795 };
-      double b{ 2006.0 };
-      double c{ 1.34e-10 };
+// fixed and scientific : for floating point values
+/*
+    double a{ 3.1415926535897932384626433832795 };
+    double b{ 2006.0 };
+    double c{ 1.34e-10 };
 
-      std::cout << std::endl;
-      std::cout << "double values (default : use scientific where necessary) : "
-     << std::endl; std::cout << "a : " << a << std::endl; std::cout << "b : " <<
-     b << std::endl; std::cout << "c : " << c << std::endl;
+    std::cout << std::endl;
+    std::cout << "double values (default : use scientific where necessary) : "
+   << std::endl; std::cout << "a : " << a << std::endl; std::cout << "b : " <<
+   b << std::endl; std::cout << "c : " << c << std::endl;
 
-      std::cout << std::endl;
-      std::cout << "double values (fixed) : " << std::endl;
-      std::cout << std::fixed;
-      std::cout << "a : " << a << std::endl;
-      std::cout << "b : " << b << std::endl;
-      std::cout << "c : " << c << std::endl;
+    std::cout << std::endl;
+    std::cout << "double values (fixed) : " << std::endl;
+    std::cout << std::fixed;
+    std::cout << "a : " << a << std::endl;
+    std::cout << "b : " << b << std::endl;
+    std::cout << "c : " << c << std::endl;
 
-      std::cout << std::endl;
-      std::cout << "double values (scientific) : " << std::endl;
-      std::cout << std::scientific;
-      std::cout << "a : " << a << std::endl;
-      std::cout << "b : " << b << std::endl;
-      std::cout << "c : " << c << std::endl;
+    std::cout << std::endl;
+    std::cout << "double values (scientific) : " << std::endl;
+    std::cout << std::scientific;
+    std::cout << "a : " << a << std::endl;
+    std::cout << "b : " << b << std::endl;
+    std::cout << "c : " << c << std::endl;
 
-      std::cout << std::endl;
-      std::cout << "double values (back to defaults) : " << std::endl;
-      std::cout.unsetf(std::ios::scientific | std::ios::fixed);// Hack
-      std::cout << "a : " << a << std::endl;
-      std::cout << "b : " << b << std::endl;
-      std::cout << "c : " << c << std::endl;
-  */
+    std::cout << std::endl;
+    std::cout << "double values (back to defaults) : " << std::endl;
+    std::cout.unsetf(std::ios::scientific | std::ios::fixed);// Hack
+    std::cout << "a : " << a << std::endl;
+    std::cout << "b : " << b << std::endl;
+    std::cout << "c : " << c << std::endl;
 
-  //===================================================================
 
-  // std::setprecision() : the number of digits printed for a floating point
-  // number. Default is 6
-  /*
-  double a {3.1415926535897932384626433832795};
+//===================================================================
 
-  std::cout << "\n";
-  std::cout << "a (default precision: 6): " << a << "\n";
-  std::cout << std::setprecision(10);
-  std::cout << "a (precision: 10): " << a << "\n";
-  std::cout << std::setprecision(20);
-  std::cout << "a (precision: 20): " << a << "\n";
+// std::setprecision() : the number of digits printed for a floating point
+// number. Default is 6
+//
+double a {3.1415926535897932384626433832795};
 
-  */
+std::cout << "\n";
+std::cout << "a (default precision: 6): " << a << "\n";
+std::cout << std::setprecision(10);
+std::cout << "a (precision: 10): " << a << "\n";
+std::cout << std::setprecision(20);
+std::cout << "a (precision: 20): " << a << "\n";
 
-  //===================================================================
 
-  // showpoint and noshowpoint : show trailing zeros if necessary
-  // Force output of the decimal point
 
-  double d{34.1};
-  double e{101.99};
-  double f{12.0};
-  int g{45};
+//===================================================================
 
-  std::cout << std::endl;
-  std::cout << "noshowpoint (default) : " << std::endl;
-  std::cout << "d : " << d << std::endl;
-  std::cout << "e : " << e << std::endl;
-  std::cout << "f : " << f << std::endl; // 12
-  std::cout << "g : " << g << std::endl;
+// showpoint and noshowpoint : show trailing zeros if necessary
+// Force output of the decimal point
 
-  std::cout << std::endl;
-  std::cout << "showpoint: " << std::endl;
-  std::cout << std::showpoint;
-  std::cout << "d : " << d << std::endl;
-  std::cout << "e : " << e << std::endl;
-  std::cout << "f : " << f << std::endl; // 12.0
-  std::cout << "g : " << g << std::endl;
+double d{34.1};
+double e{101.99};
+double f{12.0};
+int g{45};
+
+std::cout << std::endl;
+std::cout << "noshowpoint (default) : " << std::endl;
+std::cout << "d : " << d << std::endl;
+std::cout << "e : " << e << std::endl;
+std::cout << "f : " << f << std::endl; // 12
+std::cout << "g : " << g << std::endl;
+
+std::cout << std::endl;
+std::cout << "showpoint: " << std::endl;
+std::cout << std::showpoint;
+std::cout << "d : " << d << std::endl;
+std::cout << "e : " << e << std::endl;
+std::cout << "f : " << f << std::endl; // 12.0
+std::cout << "g : " << g << std::endl;
 }
 
 export void external_format_facilities() {
@@ -845,3 +904,4 @@ export void masks() {
   var ^= (mask_bit_8 | mask_bit_7 | mask_bit_6 | mask_bit_5);
   fmt::println("var: {:08b}", var);
 }
+*/

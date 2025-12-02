@@ -8,7 +8,7 @@
             "name": "Launch",
             "type": "lldb",
             "request": "launch",
-            "program": "${workspaceRoot}/build/macos/Debug/Rocket",
+            "program": "${command:cmake.launchTargetPath}",
             "args": [],
             "cwd": "${workspaceRoot}"
         }
