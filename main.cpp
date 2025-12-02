@@ -1,8 +1,4 @@
-/*
-    . Bitwise operator examples:
-        . Masks
-        . Packing color information.
-*/
+
 
 import utilities;
 
@@ -14,5 +10,7 @@ int main() {
   //   pack_color_information();
   //   input_output_iostream();
   //   output_formatting();
-  external_format_facilities();
+  // external_format_facilities();
+  // masks();
+  pack_color_information();
 }

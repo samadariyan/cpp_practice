@@ -8,14 +8,14 @@ module;
 
 export module utilities;
 
-export unsigned char mask_bit_0{0b00000001}; // Bit0
-export unsigned char mask_bit_1{0b00000010}; // Bit1
-export unsigned char mask_bit_2{0b00000100}; // Bit2
-export unsigned char mask_bit_3{0b00001000}; // Bit3
-export unsigned char mask_bit_4{0b00010000}; // Bit4
-export unsigned char mask_bit_5{0b00100000}; // Bit5
-export unsigned char mask_bit_6{0b01000000}; // Bit6
-export unsigned char mask_bit_7{0b10000000}; // Bit7
+export unsigned char mask_bit_1{0b00000001}; // Bit0
+export unsigned char mask_bit_2{0b00000010}; // Bit1
+export unsigned char mask_bit_3{0b00000100}; // Bit2
+export unsigned char mask_bit_4{0b00001000}; // Bit3
+export unsigned char mask_bit_5{0b00010000}; // Bit4
+export unsigned char mask_bit_6{0b00100000}; // Bit5
+export unsigned char mask_bit_7{0b01000000}; // Bit6
+export unsigned char mask_bit_8{0b10000000}; // Bit7
 
 export void use_options_v0(bool flag0, bool flag1, bool flag2, bool flag3,
                            bool flag4, bool flag5, bool flag6, bool flag7) {
@@ -31,21 +31,21 @@ export void use_options_v0(bool flag0, bool flag1, bool flag2, bool flag3,
 
 export void use_options_v1(unsigned char flags) {
   fmt::println("bit0 is : {}, do something with it!",
-               ((flags & mask_bit_0) >> 0));
+               ((flags & mask_bit_1) >> 0));
   fmt::println("bit1 is: {}, do something with it! ",
-               ((flags & mask_bit_1) >> 1));
+               ((flags & mask_bit_2) >> 1));
   fmt::println("bit2 is: {}, do something with it! ",
-               ((flags & mask_bit_2) >> 2));
+               ((flags & mask_bit_3) >> 2));
   fmt::println("bit3 is: {}, do something with it! ",
-               ((flags & mask_bit_3) >> 3));
+               ((flags & mask_bit_4) >> 3));
   fmt::println("bit4 is: {}, do something with it! ",
-               ((flags & mask_bit_4) >> 4));
+               ((flags & mask_bit_5) >> 4));
   fmt::println("bit5 is: {}, do something with it! ",
-               ((flags & mask_bit_5) >> 5));
+               ((flags & mask_bit_6) >> 5));
   fmt::println("bit6 is: {}, do something with it! ",
-               ((flags & mask_bit_6) >> 6));
+               ((flags & mask_bit_7) >> 6));
   fmt::println("bit7 is: {}, do something with it! ",
-               ((flags & mask_bit_7) >> 7));
+               ((flags & mask_bit_8) >> 7));
 }
 
 export void pack_color_information() {
@@ -578,7 +578,7 @@ export void external_format_facilities() {
   fmt::println("neg_int (dec) : {}", neg_int);
   fmt::println("neg_int (hex) : {:x}", neg_int);
   fmt::println("neg_int (oct) : {:o}", neg_int);
-  fmt::println("neg_int (binary) : {:032b}",
+  fmt::println("neg_int (binary) : {:08b}",
                neg_int); // Prints the pos number representation prepended with
                          // a negative sign. Make sure this is what you want.
   fmt::println("neg_int (decimal) : {:d}", neg_int);
@@ -643,4 +643,205 @@ export void external_format_facilities() {
   fmt::println("It's {:.2f} degrees outside and it's {}", 34.5, "sunny");
   fmt::println("It's {1} today. And the temperature is {0:.2f} degrees outside",
                34.5, "sunny");
+}
+
+export void print_ints_binary() {
+  // Printing integers in binary
+  unsigned short int data{15};
+
+  fmt::println("data (dec): {0:d}", data);   // Decimal
+  fmt::println("data (oct): {0:o}", data);   // Octal
+  fmt::println("data (hex): {0:x}", data);   // Hexadecimal
+  fmt::println("data (bin): {:016b}", data); // Binary (16 digits)
+}
+
+export void bitwise_shift_operators() {
+  // Shift operators
+  unsigned short int value{0xff0u};
+
+  fmt::println("Size of short int: {}",
+               sizeof(unsigned short int)); // 2 bytes or 16 bits
+  fmt::println("binary value: {:016b}, decimal value: {}", value, value);
+
+  // Shift left by one bit
+  value = static_cast<unsigned short int>(value << 1);
+  fmt::println("binary value: {:016b}, decimal value: {}", value, value);
+
+  // Shift left by one bit
+  value = static_cast<unsigned short int>(value << 1);
+  fmt::println("binary value: {:016b}, decimal value: {}", value, value);
+
+  // Shift left by one bit
+  value = static_cast<unsigned short int>(value << 1);
+  fmt::println("binary value: {:016b}, decimal value: {}", value, value);
+
+  // Shift left by one bit
+  value = static_cast<unsigned short int>(value << 1);
+  fmt::println("binary value: {:016b}, decimal value: {}", value, value);
+
+  // Shift left by one bit
+  value = static_cast<unsigned short int>(value << 1);
+  fmt::println("binary value: {:016b}, decimal value: {}", value, value);
+
+  // Shift right by one bit
+  value = static_cast<unsigned short int>(value >> 1);
+  fmt::println("binary value: {:016b}, decimal value: {}", value, value);
+
+  // Shift right by four bits in one go
+  value = static_cast<unsigned short int>(value >> 4);
+  fmt::println("binary value: {:016b}, decimal value: {}", value, value);
+}
+
+export void logical_bitwise_operators() {
+  // Logical bitwise operators
+  unsigned int value1{0x3}; // 0000 0011
+  unsigned int value2{0x5}; // 0000 0101
+
+  fmt::println("value1: {:08b}", value1);
+  fmt::println("value2: {:08b}", value2);
+
+  // Bitwise AND operator
+  fmt::println("Bitwise and:");
+  fmt::println("value1 & value2: {:08b}", (value1 & value2));
+
+  // Bitwise OR operator
+  fmt::println("Bitwise or:");
+  fmt::println("value1 | value2: {:08b}", (value1 | value2));
+
+  // Bitwise not
+  fmt::println("Bitwise NOT :");
+  fmt::println("~value1: {:08b}", ~value1);
+  fmt::println("~value2: {:08b}", ~value2);
+
+  // Bitwise XOR operator
+  fmt::println("Bitwise xor:");
+  fmt::println("value1 ^ value2: {:08b}", (value1 ^ value2));
+}
+
+export void compound_bitwise_operators() {
+  // Compound bitwise opreators
+  unsigned int sandbox_var{0b00110100};
+
+  // Print out initial value
+  fmt::println("Initial value: ");
+  fmt::println("sandbox_var: {:08b}", sandbox_var);
+
+  // Compound left shift
+  fmt::println("Shift left 2 bit positions in place:  ");
+  sandbox_var <<= 2;
+  fmt::println("sandbox_var: {:08b}", sandbox_var);
+
+  // Compound right shift
+  fmt::println("Shift right 4 bit positions in place:  ");
+  sandbox_var >>= 4;
+  fmt::println("sandbox_var: {:08b}", sandbox_var);
+
+  // Compound OR with 0000 0010 to have all lower 4 bits turned on
+  fmt::println("Compound OR with 0000 0010 :  ");
+  sandbox_var |= 0b00001111;
+  fmt::println("sandbox_var: {:08b}", sandbox_var);
+
+  // Compound AND with 0000 1100 to turn off the 2 lowest bits
+  fmt::println("Compound AND with 0000 1100 :  ");
+  sandbox_var &= 0b000001100;
+  fmt::println("sandbox_var: {:08b}", sandbox_var);
+
+  // XOR with 00000011 to turn on the 4 lowest bits again
+  fmt::println("Compound XOR with 0000 0011 :  ");
+  sandbox_var ^= 0b00000011;
+  fmt::println("sandbox_var: {:08b}", sandbox_var);
+}
+
+export void masks() {
+  // Masks: highlight a bit of interest and turn off all the others
+  unsigned int mask_bit_1{0b00000001}; // bit 1
+  unsigned int mask_bit_2{0b00000010}; // bit 2
+  unsigned int mask_bit_3{0b00000100}; // bit 3
+  unsigned int mask_bit_4{0b00001000}; // bit 4
+  unsigned int mask_bit_5{0b00010000}; // bit 5
+  unsigned int mask_bit_6{0b00100000}; // bit 6
+  unsigned int mask_bit_7{0b01000000}; // bit 7
+  unsigned int mask_bit_8{0b10000001}; // bit 8
+
+  // Sandbox variable
+  unsigned int var{0b00000000}; // Starts off all bits off
+  fmt::println("var: {:08b}", var);
+  fmt::println("\n");
+
+  // SETTING BITS
+  // Setting : |= with mask of the bit
+
+  fmt::println("Turning on bit in position 2");
+  var |= mask_bit_2; // Turn on bit in position 2
+  fmt::println("var: {:08b}", var);
+  fmt::println("\n");
+
+  // Set bit 5
+  fmt::println("Setting bit in position 6: ");
+  var |= mask_bit_6;
+  fmt::println("var: {:08b}", var);
+  fmt::println("\n");
+
+  // RESETTING BITS : set to 0
+  // Resetting : &= (~mask)
+
+  fmt::println("Turning off bit in position 2");
+  var &= (~mask_bit_2); // Turn off bit in position 1
+  fmt::println("var: {:08b}", var);
+  fmt::println("\n");
+
+  fmt::println("Turning off bit in position 6");
+  var &= (~mask_bit_6); // Turn off bit in position 5
+  fmt::println("var: {:08b}", var);
+  fmt::println("\n");
+
+  // Set all bits
+  fmt::print("Setting all bits: ");
+  var |= (mask_bit_1 | mask_bit_2 | mask_bit_3 | mask_bit_4 | mask_bit_5 |
+          mask_bit_6 | mask_bit_7 | mask_bit_8);
+  fmt::println("var: {:08b}", var);
+  fmt::println("\n");
+
+  // Reset bits at pos 0,2,4,6
+  fmt::println("Reset bits at pos 1,3,5,7: ");
+  var &= ~(mask_bit_1 | mask_bit_3 | mask_bit_5 | mask_bit_7);
+  fmt::println("var: {:08b}", var);
+  fmt::println("\n");
+
+  // Check state of a bit: & with mask
+  fmt::println("Checking the state of each bit position (on/off): ");
+  fmt::println("bit1 is {}", static_cast<bool>(var & mask_bit_1));
+  fmt::println("bit2 is {}", static_cast<bool>(var & mask_bit_2));
+  fmt::println("bit3 is {}", static_cast<bool>(var & mask_bit_3));
+  fmt::println("bit4 is {}", static_cast<bool>(var & mask_bit_4));
+  fmt::println("bit5 is {}", static_cast<bool>(var & mask_bit_5));
+  fmt::println("bit6 is {}", static_cast<bool>(var & mask_bit_6));
+  fmt::println("bit7 is {}", static_cast<bool>(var & mask_bit_7));
+  fmt::println("bit8 is {}", static_cast<bool>(var & mask_bit_8));
+
+  fmt::println("\n");
+
+  fmt::println("bit8 is {}", (var & mask_bit_7) >> 6);
+  fmt::println("bit8 is {}", (var & mask_bit_8) >> 7);
+  fmt::println("\n");
+
+  // Toggle bits
+  // Toggle : var ^ mask
+
+  // Toggle bit 0
+  fmt::println("Toggle bit 1: ");
+  var ^= mask_bit_1;
+  fmt::println("var: {:08b}", var);
+  fmt::println("\n");
+
+  // Toggle bit7
+  fmt::println("Toggle bit 8: ");
+  var ^= mask_bit_8;
+  fmt::println("var: {:08b}", var);
+  fmt::println("\n");
+
+  // Toggle multiple bits in one go : the 4 higher bits
+  fmt::println("Toggle multiple bits in one go : the 4 higher bits: ");
+  var ^= (mask_bit_8 | mask_bit_7 | mask_bit_6 | mask_bit_5);
+  fmt::println("var: {:08b}", var);
 }
