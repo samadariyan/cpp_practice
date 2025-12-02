@@ -11,7 +11,7 @@ set(CXX_STANDARD_REQUIRED ON) #Make C++23 a hard requirement
 set(CMAKE_CXX_STANDARD 23) # Default C++ standard for targets
 set(CMAKE_CXX_SCAN_FOR_MODULES ON)
 
-find_package(fmt CONFIG REQUIRED)
+# find_package(fmt CONFIG REQUIRED)
 find_package(SFML COMPONENTS Graphics CONFIG REQUIRED)
 
 #We're using the project name as the target name, but you can change it to make them different.
@@ -24,4 +24,4 @@ target_sources(${PROJECT_NAME}
         utilities.ixx
 )
 # target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt sfml-graphics)
-target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt SFML::Graphics)
+target_link_libraries(${PROJECT_NAME} PRIVATE SFML::Graphics)

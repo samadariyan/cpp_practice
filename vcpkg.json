@@ -2,7 +2,6 @@
   "name": "rocket",
   "version": "0.1.0",
   "dependencies": [
-    "fmt",
     "sfml"
   ]
 }

@@ -85,32 +85,32 @@ export unsigned char mask_bit_8{0b10000000}; // Bit7
 
 export void use_options_v0(bool flag0, bool flag1, bool flag2, bool flag3,
                            bool flag4, bool flag5, bool flag6, bool flag7) {
-  fmt::println("Flag0 is : {}, do something with it.", flag0);
-  fmt::println("Flag1 is : {}, do something with it.", flag1);
-  fmt::println("Flag2 is : {}, do something with it.", flag2);
-  fmt::println("Flag3 is : {}, do something with it.", flag3);
-  fmt::println("Flag4 is : {}, do something with it.", flag4);
-  fmt::println("Flag5 is : {}, do something with it.", flag5);
-  fmt::println("Flag6 is : {}, do something with it.", flag6);
-  fmt::println("Flag7 is : {}, do something with it.", flag7);
+  std::println("Flag0 is : {}, do something with it.", flag0);
+  std::println("Flag1 is : {}, do something with it.", flag1);
+  std::println("Flag2 is : {}, do something with it.", flag2);
+  std::println("Flag3 is : {}, do something with it.", flag3);
+  std::println("Flag4 is : {}, do something with it.", flag4);
+  std::println("Flag5 is : {}, do something with it.", flag5);
+  std::println("Flag6 is : {}, do something with it.", flag6);
+  std::println("Flag7 is : {}, do something with it.", flag7);
 }
 
 export void use_options_v1(unsigned char flags) {
-  fmt::println("bit0 is : {}, do something with it!",
+  std::println("bit0 is : {}, do something with it!",
                ((flags & mask_bit_1) >> 0));
-  fmt::println("bit1 is: {}, do something with it! ",
+  std::println("bit1 is: {}, do something with it! ",
                ((flags & mask_bit_2) >> 1));
-  fmt::println("bit2 is: {}, do something with it! ",
+  std::println("bit2 is: {}, do something with it! ",
                ((flags & mask_bit_3) >> 2));
-  fmt::println("bit3 is: {}, do something with it! ",
+  std::println("bit3 is: {}, do something with it! ",
                ((flags & mask_bit_4) >> 3));
-  fmt::println("bit4 is: {}, do something with it! ",
+  std::println("bit4 is: {}, do something with it! ",
                ((flags & mask_bit_5) >> 4));
-  fmt::println("bit5 is: {}, do something with it! ",
+  std::println("bit5 is: {}, do something with it! ",
                ((flags & mask_bit_6) >> 5));
-  fmt::println("bit6 is: {}, do something with it! ",
+  std::println("bit6 is: {}, do something with it! ",
                ((flags & mask_bit_7) >> 6));
-  fmt::println("bit7 is: {}, do something with it! ",
+  std::println("bit7 is: {}, do something with it! ",
                ((flags & mask_bit_8) >> 7));
 }
 
@@ -125,10 +125,10 @@ export void pack_color_information() {
   // We shift to make sure the color byte of interest is in the
   //  lower index byte position so that we can interpret that as an integer,
   //  which will be between 0 and 255.
-  fmt::println("Red is: {0:d}", ((my_color & red_mask) >> 24));
-  fmt::println("Green is: {0:d}", ((my_color & green_mask) >> 16));
-  fmt::println("Blue is: {0:d}", ((my_color & blue_mask) >> 8));
-  fmt::println("Alpha is: {0:d}", ((my_color & alpha_mask) >> 0));
+  std::println("Red is: {0:d}", ((my_color & red_mask) >> 24));
+  std::println("Green is: {0:d}", ((my_color & green_mask) >> 16));
+  std::println("Blue is: {0:d}", ((my_color & blue_mask) >> 8));
+  std::println("Alpha is: {0:d}", ((my_color & alpha_mask) >> 0));
 }
 export void input_output_iostream() {
   // Data output
@@ -483,231 +483,231 @@ std::cout << "g : " << g << std::endl;
 
 export void external_format_facilities() {
   // Using the external format library
-  auto value = fmt::format("Hello, {}!", "world");
+  auto value = std::format("Hello, {}!", "world");
   std::cout << value << "\n";
-  fmt::print("Hello, {}!", "world\n");
-  fmt::println("Unformatted table : ");
-  fmt::println("{} {} {}", "Daniel", "Gray", "25");
-  fmt::println("{} {} {}", "Stanley", "Woods", "33");
-  fmt::println("{} {} {}", "Jordan", "Parker", "45");
-  fmt::println("{} {} {}", "Joe", "Ball", "21");
-  fmt::println("{} {} {}", "Josh", "Carr", "27");
-  fmt::println("{} {} {}", "Izaiah", "Robinson", "29");
+  std::print("Hello, {}!", "world\n");
+  std::println("Unformatted table : ");
+  std::println("{} {} {}", "Daniel", "Gray", "25");
+  std::println("{} {} {}", "Stanley", "Woods", "33");
+  std::println("{} {} {}", "Jordan", "Parker", "45");
+  std::println("{} {} {}", "Joe", "Ball", "21");
+  std::println("{} {} {}", "Josh", "Carr", "27");
+  std::println("{} {} {}", "Izaiah", "Robinson", "29");
 
-  fmt::println("-----");
+  std::println("-----");
 
-  fmt::println("Formatted table : ");
-  fmt::println("{:<10} {:<10} {:<5}", "Lastname", "Firstname", "Age");
-  fmt::println("{:<10} {:<10} {:<5}", "Daniel", "Gray", "25");
-  fmt::println("{:<10} {:<10} {:<5}", "Stanley", "Woods", "33");
-  fmt::println("{:<10} {:<10} {:<5}", "Jordan", "Parker", "45");
-  fmt::println("{:<10} {:<10} {:<5}", "Joe", "Ball", "21");
-  fmt::println("{:<10} {:<10} {:<5}", "Josh", "Carr", "27");
-  fmt::println("{:<10} {:<10} {:<5}", "Izaiah", "Robinson", "29");
+  std::println("Formatted table : ");
+  std::println("{:<10} {:<10} {:<5}", "Lastname", "Firstname", "Age");
+  std::println("{:<10} {:<10} {:<5}", "Daniel", "Gray", "25");
+  std::println("{:<10} {:<10} {:<5}", "Stanley", "Woods", "33");
+  std::println("{:<10} {:<10} {:<5}", "Jordan", "Parker", "45");
+  std::println("{:<10} {:<10} {:<5}", "Joe", "Ball", "21");
+  std::println("{:<10} {:<10} {:<5}", "Josh", "Carr", "27");
+  std::println("{:<10} {:<10} {:<5}", "Izaiah", "Robinson", "29");
 
-  fmt::println("-----");
+  std::println("-----");
 
   // dynamic width
   int col_width{10};
-  fmt::println("Formatted table with dynamic width: ");
-  fmt::println("{:<{}} {:<{}} {:<{}}", "Lastname", col_width, "Firstname",
+  std::println("Formatted table with dynamic width: ");
+  std::println("{:<{}} {:<{}} {:<{}}", "Lastname", col_width, "Firstname",
                col_width, "Age", col_width / 2);
-  fmt::println("{:<{}} {:<{}} {:<{}}", "Daniel", col_width, "Gray", col_width,
+  std::println("{:<{}} {:<{}} {:<{}}", "Daniel", col_width, "Gray", col_width,
                "25", col_width / 2);
-  fmt::println("{:<{}} {:<{}} {:<{}}", "Stanley", col_width, "Woods", col_width,
+  std::println("{:<{}} {:<{}} {:<{}}", "Stanley", col_width, "Woods", col_width,
                "33", col_width / 2);
-  fmt::println("{:<{}} {:<{}} {:<{}}", "Jordan", col_width, "Parker", col_width,
+  std::println("{:<{}} {:<{}} {:<{}}", "Jordan", col_width, "Parker", col_width,
                "45", col_width / 2);
-  fmt::println("{:<{}} {:<{}} {:<{}}", "Joe", col_width, "Ball", col_width,
+  std::println("{:<{}} {:<{}} {:<{}}", "Joe", col_width, "Ball", col_width,
                "21", col_width / 2);
-  fmt::println("{:<{}} {:<{}} {:<{}}", "Josh", col_width, "Carr", col_width,
+  std::println("{:<{}} {:<{}} {:<{}}", "Josh", col_width, "Carr", col_width,
                "27", col_width / 2);
-  fmt::println("{:<{}} {:<{}} {:<{}}", "Izaiah", col_width, "Robinson",
+  std::println("{:<{}} {:<{}} {:<{}}", "Izaiah", col_width, "Robinson",
                col_width, "29", col_width / 2);
 
-  fmt::println("-----");
+  std::println("-----");
 
   // right justified
-  fmt::println("Right justified table:  ");
+  std::println("Right justified table:  ");
   col_width = 20;
-  fmt::println("{:>{}} {:>{}} {:>{}}", "Lastname", col_width, "Firstname",
+  std::println("{:>{}} {:>{}} {:>{}}", "Lastname", col_width, "Firstname",
                col_width, "Age", col_width / 2);
-  fmt::println("{:>{}} {:>{}} {:>{}}", "Daniel", col_width, "Gray", col_width,
+  std::println("{:>{}} {:>{}} {:>{}}", "Daniel", col_width, "Gray", col_width,
                "25", col_width / 2);
-  fmt::println("{:>{}} {:>{}} {:>{}}", "Stanley", col_width, "Woods", col_width,
+  std::println("{:>{}} {:>{}} {:>{}}", "Stanley", col_width, "Woods", col_width,
                "33", col_width / 2);
-  fmt::println("{:>{}} {:>{}} {:>{}}", "Jordan", col_width, "Parker", col_width,
+  std::println("{:>{}} {:>{}} {:>{}}", "Jordan", col_width, "Parker", col_width,
                "45", col_width / 2);
-  fmt::println("{:>{}} {:>{}} {:>{}}", "Joe", col_width, "Ball", col_width,
+  std::println("{:>{}} {:>{}} {:>{}}", "Joe", col_width, "Ball", col_width,
                "21", col_width / 2);
-  fmt::println("{:>{}} {:>{}} {:>{}}", "Josh", col_width, "Carr", col_width,
+  std::println("{:>{}} {:>{}} {:>{}}", "Josh", col_width, "Carr", col_width,
                "27", col_width / 2);
-  fmt::println("{:>{}} {:>{}} {:>{}}", "Izaiah", col_width, "Robinson",
+  std::println("{:>{}} {:>{}} {:>{}}", "Izaiah", col_width, "Robinson",
                col_width, "29", col_width / 2);
 
-  fmt::println("-----");
+  std::println("-----");
 
   // left justified
-  fmt::println("Left justified table :  ");
+  std::println("Left justified table :  ");
   col_width = 20;
-  fmt::println("{:<{}} {:<{}} {:<{}}", "Lastname", col_width, "Firstname",
+  std::println("{:<{}} {:<{}} {:<{}}", "Lastname", col_width, "Firstname",
                col_width, "Age", col_width / 2);
-  fmt::println("{:<{}} {:<{}} {:<{}}", "Daniel", col_width, "Gray", col_width,
+  std::println("{:<{}} {:<{}} {:<{}}", "Daniel", col_width, "Gray", col_width,
                "25", col_width / 2);
-  fmt::println("{:<{}} {:<{}} {:<{}}", "Stanley", col_width, "Woods", col_width,
+  std::println("{:<{}} {:<{}} {:<{}}", "Stanley", col_width, "Woods", col_width,
                "33", col_width / 2);
-  fmt::println("{:<{}} {:<{}} {:<{}}", "Jordan", col_width, "Parker", col_width,
+  std::println("{:<{}} {:<{}} {:<{}}", "Jordan", col_width, "Parker", col_width,
                "45", col_width / 2);
-  fmt::println("{:<{}} {:<{}} {:<{}}", "Joe", col_width, "Ball", col_width,
+  std::println("{:<{}} {:<{}} {:<{}}", "Joe", col_width, "Ball", col_width,
                "21", col_width / 2);
-  fmt::println("{:<{}} {:<{}} {:<{}}", "Josh", col_width, "Carr", col_width,
+  std::println("{:<{}} {:<{}} {:<{}}", "Josh", col_width, "Carr", col_width,
                "27", col_width / 2);
-  fmt::println("{:<{}} {:<{}} {:<{}}", "Izaiah", col_width, "Robinson",
+  std::println("{:<{}} {:<{}} {:<{}}", "Izaiah", col_width, "Robinson",
                col_width, "29", col_width / 2);
 
-  fmt::println("-----");
+  std::println("-----");
 
   // Internal justified
-  fmt::println("Internal justified: ");
-  fmt::print("{:>10}\n", -123.45);
-  fmt::print("{:^10}\n", -123.45);
-  fmt::print("{:<10}\n", -123.45);
+  std::println("Internal justified: ");
+  std::print("{:>10}\n", -123.45);
+  std::print("{:^10}\n", -123.45);
+  std::print("{:<10}\n", -123.45);
 
-  fmt::println("-----");
+  std::println("-----");
 
   // setfill
-  fmt::println("Table with fill characters :  ");
+  std::println("Table with fill characters :  ");
   col_width = 20;
-  fmt::println("{:*<{}} {:*<{}} {:*<{}}", "Lastname", col_width, "Firstname",
+  std::println("{:*<{}} {:*<{}} {:*<{}}", "Lastname", col_width, "Firstname",
                col_width, "Age", col_width / 2);
-  fmt::println("{:*<{}} {:*<{}} {:*<{}}", "Daniel", col_width, "Gray",
+  std::println("{:*<{}} {:*<{}} {:*<{}}", "Daniel", col_width, "Gray",
                col_width, "25", col_width / 2);
-  fmt::println("{:*<{}} {:*<{}} {:*<{}}", "Stanley", col_width, "Woods",
+  std::println("{:*<{}} {:*<{}} {:*<{}}", "Stanley", col_width, "Woods",
                col_width, "33", col_width / 2);
-  fmt::println("{:*<{}} {:*<{}} {:*<{}}", "Jordan", col_width, "Parker",
+  std::println("{:*<{}} {:*<{}} {:*<{}}", "Jordan", col_width, "Parker",
                col_width, "45", col_width / 2);
-  fmt::println("{:*<{}} {:*<{}} {:*<{}}", "Joe", col_width, "Ball", col_width,
+  std::println("{:*<{}} {:*<{}} {:*<{}}", "Joe", col_width, "Ball", col_width,
                "21", col_width / 2);
-  fmt::println("{:*<{}} {:*<{}} {:*<{}}", "Josh", col_width, "Carr", col_width,
+  std::println("{:*<{}} {:*<{}} {:*<{}}", "Josh", col_width, "Carr", col_width,
                "27", col_width / 2);
-  fmt::println("{:*<{}} {:*<{}} {:*<{}}", "Izaiah", col_width, "Robinson",
+  std::println("{:*<{}} {:*<{}} {:*<{}}", "Izaiah", col_width, "Robinson",
                col_width, "29", col_width / 2);
 
-  fmt::println("-----");
+  std::println("-----");
 
   // control bool output format : 1/0 or true/false
   bool condition{true};
   bool other_condition{false};
 
-  fmt::println("condition: {}", condition);             // true
-  fmt::println("other_condition: {}", other_condition); // false
+  std::println("condition: {}", condition);             // true
+  std::println("other_condition: {}", other_condition); // false
 
   // This is a hack - ref: https://github.com/fmtlib/fmt/issues/170
-  fmt::println("condition: {:d}", condition);
-  fmt::println("other_condition: {:d}", other_condition);
+  std::println("condition: {:d}", condition);
+  std::println("other_condition: {:d}", other_condition);
 
-  fmt::println("-----");
+  std::println("-----");
 
   // show or hide the +  sign for positive numbers
-  fmt::println("show or hide the +  sign for positive numbers: ");
+  std::println("show or hide the +  sign for positive numbers: ");
   int pos_num{34};
   int neg_num{-45};
 
-  fmt::println("pos_num: {}", pos_num);
-  fmt::println("neg_num: {}", neg_num);
+  std::println("pos_num: {}", pos_num);
+  std::println("neg_num: {}", neg_num);
 
-  fmt::println("pos_num: {:+}", pos_num);
-  fmt::println("neg_num: {:-}", neg_num);
+  std::println("pos_num: {:+}", pos_num);
+  std::println("neg_num: {:-}", neg_num);
 
-  fmt::println("-----");
+  std::println("-----");
 
   // different number systems : std::dec, std::hex, std::oct
-  fmt::println("different number systems: dec, hex, oct");
+  std::println("different number systems: dec, hex, oct");
   int pos_int{717171};
   int neg_int{-5};
   double double_var{498.32};
 
-  fmt::println("default base format : ");
-  fmt::println("pos_int : {}", pos_int);
-  fmt::println("neg_int : {}", neg_int);
-  fmt::println("double_var : {}", double_var);
+  std::println("default base format : ");
+  std::println("pos_int : {}", pos_int);
+  std::println("neg_int : {}", neg_int);
+  std::println("double_var : {}", double_var);
 
-  fmt::println("pos_int in different bases : ");
-  fmt::println("pos_int (dec) : {}", pos_int); // Default
-  fmt::println("pos_int (hex) : {:x}", pos_int);
-  fmt::println("pos_int (hex) : {:X}", pos_int);
-  fmt::println("pos_int (oct) : {:o}", pos_int);
-  fmt::println("pos_int (binary) : {:b}", pos_int);
-  fmt::println("pos_int (decimal) : {:d}", pos_int);
+  std::println("pos_int in different bases : ");
+  std::println("pos_int (dec) : {}", pos_int); // Default
+  std::println("pos_int (hex) : {:x}", pos_int);
+  std::println("pos_int (hex) : {:X}", pos_int);
+  std::println("pos_int (oct) : {:o}", pos_int);
+  std::println("pos_int (binary) : {:b}", pos_int);
+  std::println("pos_int (decimal) : {:d}", pos_int);
 
-  fmt::println("neg_int in different bases : ");
-  fmt::println("neg_int (dec) : {}", neg_int);
-  fmt::println("neg_int (hex) : {:x}", neg_int);
-  fmt::println("neg_int (oct) : {:o}", neg_int);
-  fmt::println("neg_int (binary) : {:08b}",
+  std::println("neg_int in different bases : ");
+  std::println("neg_int (dec) : {}", neg_int);
+  std::println("neg_int (hex) : {:x}", neg_int);
+  std::println("neg_int (oct) : {:o}", neg_int);
+  std::println("neg_int (binary) : {:08b}",
                neg_int); // Prints the pos number representation prepended with
                          // a negative sign. Make sure this is what you want.
-  fmt::println("neg_int (decimal) : {:d}", neg_int);
+  std::println("neg_int (decimal) : {:d}", neg_int);
 
   // We'll see more about floating point format specifiers shortly.
-  fmt::println("double_var in different formats: ");
-  fmt::println("double_var (default): {}", double_var);
-  fmt::println("double_var (fixed): {:f}", double_var);
-  fmt::println("double_var (scientific): {:e}", double_var);
-  fmt::println("double_var (general): {:g}", double_var);
+  std::println("double_var in different formats: ");
+  std::println("double_var (default): {}", double_var);
+  std::println("double_var (fixed): {:f}", double_var);
+  std::println("double_var (scientific): {:e}", double_var);
+  std::println("double_var (general): {:g}", double_var);
 
-  fmt::println("-----");
+  std::println("-----");
 
   // uppercase and nouppercase
-  fmt::println("uppercase and nouppercase: ");
+  std::println("uppercase and nouppercase: ");
   pos_int = 717171;
-  fmt::println("pos_int (nouppercase - default): ");
-  fmt::println("pos_int (dec): {}", pos_int);
-  fmt::println("pos_int (hex): {:x}", pos_int);
-  fmt::println("pos_int (oct): {:o}", pos_int);
+  std::println("pos_int (nouppercase - default): ");
+  std::println("pos_int (dec): {}", pos_int);
+  std::println("pos_int (hex): {:x}", pos_int);
+  std::println("pos_int (oct): {:o}", pos_int);
 
   // For integers, the # toogles the alternative format flag. This shows the
   // base prefix like 0b, and 0x.
-  fmt::println("pos_int (uppercase): ");
-  fmt::println("{:#X}", pos_int);
-  fmt::println("{:#B}", pos_int);
+  std::println("pos_int (uppercase): ");
+  std::println("{:#X}", pos_int);
+  std::println("{:#B}", pos_int);
 
-  fmt::println("-----");
+  std::println("-----");
 
   // fixed and scientific : for floating point values
   // control the precision.
-  fmt::println("fixed and scientific: for floating point values: ");
+  std::println("fixed and scientific: for floating point values: ");
   double a{3.1415926535897932384626433832795};
   double b{2006.0};
   double c{1.34e-10};
 
-  fmt::println("double values (default : use scientific where necessary) : ");
-  fmt::println("a : {}", a);
-  fmt::println("b : {}", b);
-  fmt::println("c : {}", c);
+  std::println("double values (default : use scientific where necessary) : ");
+  std::println("a : {}", a);
+  std::println("b : {}", b);
+  std::println("c : {}", c);
 
-  fmt::println("double values (precision) : ");
-  fmt::println("a: {:.6}", a);
-  fmt::println("b: {:.6}", b);
-  fmt::println("c: {:.6}", c);
+  std::println("double values (precision) : ");
+  std::println("a: {:.6}", a);
+  std::println("b: {:.6}", b);
+  std::println("c: {:.6}", c);
 
-  fmt::println("double values (fixed) : ");
-  fmt::println("a: {:.6f}", a);
-  fmt::println("b: {:.6f}", b);
-  fmt::println("c: {:.6f}", c);
+  std::println("double values (fixed) : ");
+  std::println("a: {:.6f}", a);
+  std::println("b: {:.6f}", b);
+  std::println("c: {:.6f}", c);
 
-  fmt::println("double values (scientific) : ");
-  fmt::println("a: {:.6e}", a);
-  fmt::println("b: {:.6e}", b);
-  fmt::println("c: {:.6e}", c);
+  std::println("double values (scientific) : ");
+  std::println("a: {:.6e}", a);
+  std::println("b: {:.6e}", b);
+  std::println("c: {:.6e}", c);
 
-  fmt::println("-----");
+  std::println("-----");
 
   // argument indexes: Allow us to order arguments. This is good for example for
   // applications that use localization.
-  fmt::println("argument indexes: ");
-  fmt::println("It's {:.2f} degrees outside and it's {}", 34.5, "sunny");
-  fmt::println("It's {1} today. And the temperature is {0:.2f} degrees outside",
+  std::println("argument indexes: ");
+  std::println("It's {:.2f} degrees outside and it's {}", 34.5, "sunny");
+  std::println("It's {1} today. And the temperature is {0:.2f} degrees outside",
                34.5, "sunny");
 }
 
@@ -715,47 +715,47 @@ export void print_ints_binary() {
   // Printing integers in binary
   unsigned short int data{15};
 
-  fmt::println("data (dec): {0:d}", data);   // Decimal
-  fmt::println("data (oct): {0:o}", data);   // Octal
-  fmt::println("data (hex): {0:x}", data);   // Hexadecimal
-  fmt::println("data (bin): {:016b}", data); // Binary (16 digits)
+  std::println("data (dec): {0:d}", data);   // Decimal
+  std::println("data (oct): {0:o}", data);   // Octal
+  std::println("data (hex): {0:x}", data);   // Hexadecimal
+  std::println("data (bin): {:016b}", data); // Binary (16 digits)
 }
 
 export void bitwise_shift_operators() {
   // Shift operators
   unsigned short int value{0xff0u};
 
-  fmt::println("Size of short int: {}",
+  std::println("Size of short int: {}",
                sizeof(unsigned short int)); // 2 bytes or 16 bits
-  fmt::println("binary value: {:016b}, decimal value: {}", value, value);
+  std::println("binary value: {:016b}, decimal value: {}", value, value);
 
   // Shift left by one bit
   value = static_cast<unsigned short int>(value << 1);
-  fmt::println("binary value: {:016b}, decimal value: {}", value, value);
+  std::println("binary value: {:016b}, decimal value: {}", value, value);
 
   // Shift left by one bit
   value = static_cast<unsigned short int>(value << 1);
-  fmt::println("binary value: {:016b}, decimal value: {}", value, value);
+  std::println("binary value: {:016b}, decimal value: {}", value, value);
 
   // Shift left by one bit
   value = static_cast<unsigned short int>(value << 1);
-  fmt::println("binary value: {:016b}, decimal value: {}", value, value);
+  std::println("binary value: {:016b}, decimal value: {}", value, value);
 
   // Shift left by one bit
   value = static_cast<unsigned short int>(value << 1);
-  fmt::println("binary value: {:016b}, decimal value: {}", value, value);
+  std::println("binary value: {:016b}, decimal value: {}", value, value);
 
   // Shift left by one bit
   value = static_cast<unsigned short int>(value << 1);
-  fmt::println("binary value: {:016b}, decimal value: {}", value, value);
+  std::println("binary value: {:016b}, decimal value: {}", value, value);
 
   // Shift right by one bit
   value = static_cast<unsigned short int>(value >> 1);
-  fmt::println("binary value: {:016b}, decimal value: {}", value, value);
+  std::println("binary value: {:016b}, decimal value: {}", value, value);
 
   // Shift right by four bits in one go
   value = static_cast<unsigned short int>(value >> 4);
-  fmt::println("binary value: {:016b}, decimal value: {}", value, value);
+  std::println("binary value: {:016b}, decimal value: {}", value, value);
 }
 
 export void logical_bitwise_operators() {
@@ -763,25 +763,25 @@ export void logical_bitwise_operators() {
   unsigned int value1{0x3}; // 0000 0011
   unsigned int value2{0x5}; // 0000 0101
 
-  fmt::println("value1: {:08b}", value1);
-  fmt::println("value2: {:08b}", value2);
+  std::println("value1: {:08b}", value1);
+  std::println("value2: {:08b}", value2);
 
   // Bitwise AND operator
-  fmt::println("Bitwise and:");
-  fmt::println("value1 & value2: {:08b}", (value1 & value2));
+  std::println("Bitwise and:");
+  std::println("value1 & value2: {:08b}", (value1 & value2));
 
   // Bitwise OR operator
-  fmt::println("Bitwise or:");
-  fmt::println("value1 | value2: {:08b}", (value1 | value2));
+  std::println("Bitwise or:");
+  std::println("value1 | value2: {:08b}", (value1 | value2));
 
   // Bitwise not
-  fmt::println("Bitwise NOT :");
-  fmt::println("~value1: {:08b}", ~value1);
-  fmt::println("~value2: {:08b}", ~value2);
+  std::println("Bitwise NOT :");
+  std::println("~value1: {:08b}", ~value1);
+  std::println("~value2: {:08b}", ~value2);
 
   // Bitwise XOR operator
-  fmt::println("Bitwise xor:");
-  fmt::println("value1 ^ value2: {:08b}", (value1 ^ value2));
+  std::println("Bitwise xor:");
+  std::println("value1 ^ value2: {:08b}", (value1 ^ value2));
 }
 
 export void compound_bitwise_operators() {
@@ -789,33 +789,33 @@ export void compound_bitwise_operators() {
   unsigned int sandbox_var{0b00110100};
 
   // Print out initial value
-  fmt::println("Initial value: ");
-  fmt::println("sandbox_var: {:08b}", sandbox_var);
+  std::println("Initial value: ");
+  std::println("sandbox_var: {:08b}", sandbox_var);
 
   // Compound left shift
-  fmt::println("Shift left 2 bit positions in place:  ");
+  std::println("Shift left 2 bit positions in place:  ");
   sandbox_var <<= 2;
-  fmt::println("sandbox_var: {:08b}", sandbox_var);
+  std::println("sandbox_var: {:08b}", sandbox_var);
 
   // Compound right shift
-  fmt::println("Shift right 4 bit positions in place:  ");
+  std::println("Shift right 4 bit positions in place:  ");
   sandbox_var >>= 4;
-  fmt::println("sandbox_var: {:08b}", sandbox_var);
+  std::println("sandbox_var: {:08b}", sandbox_var);
 
   // Compound OR with 0000 0010 to have all lower 4 bits turned on
-  fmt::println("Compound OR with 0000 0010 :  ");
+  std::println("Compound OR with 0000 0010 :  ");
   sandbox_var |= 0b00001111;
-  fmt::println("sandbox_var: {:08b}", sandbox_var);
+  std::println("sandbox_var: {:08b}", sandbox_var);
 
   // Compound AND with 0000 1100 to turn off the 2 lowest bits
-  fmt::println("Compound AND with 0000 1100 :  ");
+  std::println("Compound AND with 0000 1100 :  ");
   sandbox_var &= 0b000001100;
-  fmt::println("sandbox_var: {:08b}", sandbox_var);
+  std::println("sandbox_var: {:08b}", sandbox_var);
 
   // XOR with 00000011 to turn on the 4 lowest bits again
-  fmt::println("Compound XOR with 0000 0011 :  ");
+  std::println("Compound XOR with 0000 0011 :  ");
   sandbox_var ^= 0b00000011;
-  fmt::println("sandbox_var: {:08b}", sandbox_var);
+  std::println("sandbox_var: {:08b}", sandbox_var);
 }
 
 export void masks() {
@@ -831,84 +831,84 @@ export void masks() {
 
   // Sandbox variable
   unsigned int var{0b00000000}; // Starts off all bits off
-  fmt::println("var: {:08b}", var);
-  fmt::println("\n");
+  std::println("var: {:08b}", var);
+  std::println("\n");
 
   // SETTING BITS
   // Setting : |= with mask of the bit
 
-  fmt::println("Turning on bit in position 2");
+  std::println("Turning on bit in position 2");
   var |= mask_bit_2; // Turn on bit in position 2
-  fmt::println("var: {:08b}", var);
-  fmt::println("\n");
+  std::println("var: {:08b}", var);
+  std::println("\n");
 
   // Set bit 5
-  fmt::println("Setting bit in position 6: ");
+  std::println("Setting bit in position 6: ");
   var |= mask_bit_6;
-  fmt::println("var: {:08b}", var);
-  fmt::println("\n");
+  std::println("var: {:08b}", var);
+  std::println("\n");
 
   // RESETTING BITS : set to 0
   // Resetting : &= (~mask)
 
-  fmt::println("Turning off bit in position 2");
+  std::println("Turning off bit in position 2");
   var &= (~mask_bit_2); // Turn off bit in position 1
-  fmt::println("var: {:08b}", var);
-  fmt::println("\n");
+  std::println("var: {:08b}", var);
+  std::println("\n");
 
-  fmt::println("Turning off bit in position 6");
+  std::println("Turning off bit in position 6");
   var &= (~mask_bit_6); // Turn off bit in position 5
-  fmt::println("var: {:08b}", var);
-  fmt::println("\n");
+  std::println("var: {:08b}", var);
+  std::println("\n");
 
   // Set all bits
-  fmt::print("Setting all bits: ");
+  std::print("Setting all bits: ");
   var |= (mask_bit_1 | mask_bit_2 | mask_bit_3 | mask_bit_4 | mask_bit_5 |
           mask_bit_6 | mask_bit_7 | mask_bit_8);
-  fmt::println("var: {:08b}", var);
-  fmt::println("\n");
+  std::println("var: {:08b}", var);
+  std::println("\n");
 
   // Reset bits at pos 0,2,4,6
-  fmt::println("Reset bits at pos 1,3,5,7: ");
+  std::println("Reset bits at pos 1,3,5,7: ");
   var &= ~(mask_bit_1 | mask_bit_3 | mask_bit_5 | mask_bit_7);
-  fmt::println("var: {:08b}", var);
-  fmt::println("\n");
+  std::println("var: {:08b}", var);
+  std::println("\n");
 
   // Check state of a bit: & with mask
-  fmt::println("Checking the state of each bit position (on/off): ");
-  fmt::println("bit1 is {}", static_cast<bool>(var & mask_bit_1));
-  fmt::println("bit2 is {}", static_cast<bool>(var & mask_bit_2));
-  fmt::println("bit3 is {}", static_cast<bool>(var & mask_bit_3));
-  fmt::println("bit4 is {}", static_cast<bool>(var & mask_bit_4));
-  fmt::println("bit5 is {}", static_cast<bool>(var & mask_bit_5));
-  fmt::println("bit6 is {}", static_cast<bool>(var & mask_bit_6));
-  fmt::println("bit7 is {}", static_cast<bool>(var & mask_bit_7));
-  fmt::println("bit8 is {}", static_cast<bool>(var & mask_bit_8));
+  std::println("Checking the state of each bit position (on/off): ");
+  std::println("bit1 is {}", static_cast<bool>(var & mask_bit_1));
+  std::println("bit2 is {}", static_cast<bool>(var & mask_bit_2));
+  std::println("bit3 is {}", static_cast<bool>(var & mask_bit_3));
+  std::println("bit4 is {}", static_cast<bool>(var & mask_bit_4));
+  std::println("bit5 is {}", static_cast<bool>(var & mask_bit_5));
+  std::println("bit6 is {}", static_cast<bool>(var & mask_bit_6));
+  std::println("bit7 is {}", static_cast<bool>(var & mask_bit_7));
+  std::println("bit8 is {}", static_cast<bool>(var & mask_bit_8));
 
-  fmt::println("\n");
+  std::println("\n");
 
-  fmt::println("bit8 is {}", (var & mask_bit_7) >> 6);
-  fmt::println("bit8 is {}", (var & mask_bit_8) >> 7);
-  fmt::println("\n");
+  std::println("bit8 is {}", (var & mask_bit_7) >> 6);
+  std::println("bit8 is {}", (var & mask_bit_8) >> 7);
+  std::println("\n");
 
   // Toggle bits
   // Toggle : var ^ mask
 
   // Toggle bit 0
-  fmt::println("Toggle bit 1: ");
+  std::println("Toggle bit 1: ");
   var ^= mask_bit_1;
-  fmt::println("var: {:08b}", var);
-  fmt::println("\n");
+  std::println("var: {:08b}", var);
+  std::println("\n");
 
   // Toggle bit7
-  fmt::println("Toggle bit 8: ");
+  std::println("Toggle bit 8: ");
   var ^= mask_bit_8;
-  fmt::println("var: {:08b}", var);
-  fmt::println("\n");
+  std::println("var: {:08b}", var);
+  std::println("\n");
 
   // Toggle multiple bits in one go : the 4 higher bits
-  fmt::println("Toggle multiple bits in one go : the 4 higher bits: ");
+  std::println("Toggle multiple bits in one go : the 4 higher bits: ");
   var ^= (mask_bit_8 | mask_bit_7 | mask_bit_6 | mask_bit_5);
-  fmt::println("var: {:08b}", var);
+  std::println("var: {:08b}", var);
 }
 */
