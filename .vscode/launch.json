@@ -5,10 +5,10 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "launch",
+            "name": "Launch",
             "type": "lldb",
             "request": "launch",
-            "program": "${workspaceRoot}/build/linux-clang/Debug/Rocket",
+            "program": "${command:cmake.launchTargetPath}",
             "args": [],
             "cwd": "${workspaceRoot}"
         }
