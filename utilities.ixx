@@ -1,6 +1,7 @@
 module;
 
 #include <vector>
+#include <fmt/format.h>
 
 export module utilities;
 
@@ -109,7 +110,7 @@ export void for_loop() {
   // Auto type deduction
   for (auto value : {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}) {
     // value holds a copy of the current iteration in the whole bag
-    std::println(" value : {}", value);
+    fmt::println(" value : {}", value);
   }
 }
 
@@ -131,11 +132,11 @@ export void while_loop() {
   size_t i{0}; // Iterator declaration
 
   do {
-    std::println("{} : I love C++", i);
+    fmt::println("{} : I love C++", i);
     ++i; // Incrementation
   } while (i < COUNT);
 
-  std::println("Loop done!");
+  fmt::println("Loop done!");
 }
 
 export void infinite_loop() {
@@ -184,7 +185,7 @@ export void decrementing_loops() {
 
   // Print the vector in reverse
   for (size_t i{numbers.size()}; i > 0; --i) {
-    std::println("numbers[{}]: {}", i - 1, numbers[i - 1]);
+    fmt::println("numbers[{}]: {}", i - 1, numbers[i - 1]);
   }
 }
 
@@ -239,7 +240,7 @@ export void break_continue() {
       break;
     }
 
-    std::println("i : {}", i);
+    fmt::println("i : {}", i);
     ++i;
 
   } while (i < 20);
