@@ -125,9 +125,12 @@
         "type": "allOf",
         "conditions": [
           {
-            "type": "equals",
-            "lhs": "$env{CMAKE_HOST_SYSTEM_PROCESSOR}",
-            "rhs": "x86_64"
+            "type": "inList",
+            "string": "$env{CMAKE_SYSTEM_PROCESSOR}",
+            "list": [
+              "X86_64",
+              "AMD64"
+            ]
           },
           {
             "type": "equals",
@@ -154,9 +157,12 @@
         "type": "allOf",
         "conditions": [
           {
-            "type": "equals",
-            "lhs": "$env{CMAKE_HOST_SYSTEM_PROCESSOR}",
-            "rhs": "x86_64"
+            "type": "inList",
+            "string": "$env{CMAKE_SYSTEM_PROCESSOR}",
+            "list": [
+              "X86_64",
+              "AMD64"
+            ]
           },
           {
             "type": "equals",
@@ -183,9 +189,12 @@
         "type": "allOf",
         "conditions": [
           {
-            "type": "notEquals",
-            "lhs": "$env{CMAKE_HOST_SYSTEM_PROCESSOR}",
-            "rhs": "x86_64"
+            "type": "inList",
+            "string": "$env{CMAKE_SYSTEM_PROCESSOR}",
+            "list": [
+              "ARM64",
+              "AARCH64"
+            ]
           },
           {
             "type": "equals",
@@ -212,9 +221,12 @@
         "type": "allOf",
         "conditions": [
           {
-            "type": "notEquals",
-            "lhs": "$env{CMAKE_HOST_SYSTEM_PROCESSOR}",
-            "rhs": "x86_64"
+            "type": "inList",
+            "string": "$env{CMAKE_SYSTEM_PROCESSOR}",
+            "list": [
+              "ARM64",
+              "AARCH64"
+            ]
           },
           {
             "type": "equals",
