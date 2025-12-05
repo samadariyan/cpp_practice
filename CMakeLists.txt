@@ -13,7 +13,7 @@ set(CMAKE_CXX_SCAN_FOR_MODULES ON)
 
 # Find required packages
 find_package(fmt CONFIG REQUIRED)
-find_package(SFML COMPONENTS Graphics CONFIG REQUIRED)
+find_package(SFML 3 REQUIRED COMPONENTS Graphics Audio Network CONFIG REQUIRED)
 
 
 #We're using the project name as the target name, but you can change it to make them different.
@@ -27,5 +27,4 @@ target_sources(${PROJECT_NAME}
 )
 
 # Link required libraries
-target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt SFML::Graphics)
-
+target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt SFML::Graphics SFML::Audio SFML::Network)

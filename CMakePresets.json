@@ -310,6 +310,18 @@
             "displayName": "Release",
             "configurePreset": "cl",
             "inherits": "release"
+        },
+        {
+            "name": "clang-debug",
+            "displayName": "Debug",
+            "configurePreset": "clang",
+            "inherits": "debug"
+        },
+        {
+            "name": "clang-release",
+            "displayName": "Release",
+            "configurePreset": "clang",
+            "inherits": "release"
         }
     ],
     "testPresets": []
