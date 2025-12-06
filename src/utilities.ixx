@@ -7,14 +7,13 @@ module;
 
 export module utilities;
 
-/*
-
 export void app() {
 
   unsigned int width{200};
   unsigned int height{200};
-  float circle_radius{float(width) / 2};
   float clock_period{.02f};
+  float margin{20.0};
+  float circle_radius{float(width) / 2 - margin};
   const std::string title{"SFML works!"};
   sf::Color shape_color{sf::Color::Green};
   sf::Color background_color{sf::Color::Red};
@@ -22,6 +21,7 @@ export void app() {
   sf::RenderWindow window(sf::VideoMode({width, height}), title);
   sf::CircleShape shape(circle_radius);
   shape.setFillColor(shape_color);
+  shape.setPosition({margin, margin});
 
   // Timing: change the color every 5 seconds
   sf::Clock clock; // Timer: time starts ticking.
@@ -47,7 +47,7 @@ export void app() {
       if (event->is<sf::Event::Closed>()) {
         window.close();
       }
-      if (const auto *keyPressed = event->getIf<sf::Event::KeyPressed>()) {
+      if (const auto *keyPressed = event->getIf<sf::Event::KeyReleased>()) {
         if (keyPressed->scancode == sf::Keyboard::Scancode::Escape)
           window.close();
 
@@ -57,19 +57,21 @@ export void app() {
         if (keyPressed->scancode == sf::Keyboard::Scancode::B)
           shape.setFillColor(sf::Color::Blue);
         if (keyPressed->scancode == sf::Keyboard::Scancode::I) {
-          window.close();
           window.create(sf::VideoMode({width, height}), title);
-          shape.setRadius(float(width) / 2);
+          shape.setRadius(float(width) / 2 - margin);
           width += 10;
           height += 10;
+          window.setSize({width, height});
+          shape.setPosition({margin, margin});
         }
 
         if (keyPressed->scancode == sf::Keyboard::Scancode::D) {
-          window.close();
           window.create(sf::VideoMode({width, height}), title);
-          shape.setRadius(float(width) / 2);
+          shape.setRadius(float(width) / 2 - margin);
           width -= 10;
           height -= 10;
+          window.setSize({width, height});
+          shape.setPosition({margin, margin});
         }
       }
 
@@ -102,6 +104,7 @@ export void app() {
   }
 }
 
+/*
 export void declare_and_initialize() {
   // Basic Declaration and Initialization
   // Declaring a std::string and initializing it with a literal
