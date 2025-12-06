@@ -2,16 +2,15 @@ module;
 
 #include <SFML/Graphics.hpp>
 #include <fmt/format.h>
-#include <iostream>
 
 export module utilities;
 
 export void app() {
 
-  constexpr int width{200};
-  constexpr int height{200};
-  constexpr float circle_radius{100.f};
-  constexpr float clock_period{.02f};
+  unsigned int width{200};
+  unsigned int height{200};
+  float circle_radius{float(width) / 2};
+  float clock_period{.02f};
   const std::string title{"SFML works!"};
   sf::Color shape_color{sf::Color::Green};
   sf::Color background_color{sf::Color::Red};
@@ -54,14 +53,19 @@ export void app() {
         if (keyPressed->scancode == sf::Keyboard::Scancode::B)
           shape.setFillColor(sf::Color::Blue);
         if (keyPressed->scancode == sf::Keyboard::Scancode::I) {
-          shape.setRadius(shape.getRadius() + 10.f);
-          std::cout << "Radius: " << shape.getRadius() << "\n";
+          window.close();
+          window.create(sf::VideoMode({width, height}), title);
+          shape.setRadius(float(width) / 2);
+          width += 10;
+          height += 10;
         }
 
         if (keyPressed->scancode == sf::Keyboard::Scancode::D) {
-
-          shape.setRadius(shape.getRadius() - 10.f);
-          std::cout << "Radius: " << shape.getRadius() << "\n";
+          window.close();
+          window.create(sf::VideoMode({width, height}), title);
+          shape.setRadius(float(width) / 2);
+          width -= 10;
+          height -= 10;
         }
       }
 
