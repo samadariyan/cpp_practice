@@ -5,7 +5,7 @@
             "name": "base",
             "hidden": true,
             "generator": "Ninja Multi-Config",
-            "binaryDir": "${sourceDir}/build/build/${presetName}",
+            "binaryDir": "${sourceDir}/build/${presetName}",
             "installDir": "${sourceDir}/build/install/${presetName}",
             "cacheVariables": {
                 "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/install/${presetName}",
@@ -18,7 +18,7 @@
             "name": "release",
             "hidden": true,
             "generator": "Ninja",
-            "binaryDir": "${sourceDir}/build/build/${presetName}",
+            "binaryDir": "${sourceDir}/build/${presetName}",
             "installDir": "${sourceDir}/build/install/${presetName}",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
