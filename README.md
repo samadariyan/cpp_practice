@@ -1,4 +1,4 @@
-# cpp_practice
+# C++ Practice
 
 ## Community Triplets:
 - arm-linux
