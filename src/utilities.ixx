@@ -80,13 +80,11 @@ export void app() {
 
       // Conditional rendering: Code that shows up further down overrides the
       // code that shows up further up.
-      /*
-      if(shape.getRadius() > 150.f){
-          shape.setFillColor(sf::Color::Black);
-      }else if(shape.getRadius() < 150.f){
-        shape.setFillColor(sf::Color::Blue);
-      }
-      */
+      // if(shape.getRadius() > 150.f){
+      //     shape.setFillColor(sf::Color::Black);
+      // }else if(shape.getRadius() < 150.f){
+      //   shape.setFillColor(sf::Color::Blue);
+      // }
 
       window.clear(background_color);
       window.draw(shape);

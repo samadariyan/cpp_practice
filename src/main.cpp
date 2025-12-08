@@ -1,12 +1,13 @@
 
 
 import utilities;
+import fortune_tellter;
+import random_numbers;
 
 int main() {
 
-  app(
-
-  );
+  fortune_teller_good();
+  fortune_teller_bad();
 
   return 0;
 }

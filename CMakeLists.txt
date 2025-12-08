@@ -24,6 +24,9 @@ target_sources(${PROJECT_NAME}
         PUBLIC
         FILE_SET CXX_MODULES FILES
         src/utilities.ixx
+        src/random_numbers.ixx
+        src/fortune_tellter.ixx
+        src/secuences_challenge.ixx
 )
 
 # Link required libraries
