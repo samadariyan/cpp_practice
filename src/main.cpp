@@ -1,13 +1,16 @@
 
 
 import utilities;
-import fortune_tellter;
+import secuences_challenge;
 import random_numbers;
+import fortune_tellter;
 
 int main() {
 
-  fortune_teller_good();
-  fortune_teller_bad();
-
+  it_1::app();
+  // it_2::app();
+  // it_3::app();
+  // it_4::app();
+  // it_5::app();
   return 0;
 }

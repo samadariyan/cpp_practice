@@ -476,8 +476,9 @@ export void app() {
           // Add shape at the position of the cursor
 
           // Grab the mouse position
-          float mouse_x = static_cast<float>(event.mouseButton.x);
-          float mouse_y = static_cast<float>(event.mouseButton.y);
+          sf::Vector2i mouse_pos = sf::Mouse::getPosition(window);
+          float mouse_x = static_cast<float>(mouse_pos.x);
+          float mouse_y = static_cast<float>(mouse_pos.y);
 
           // Generate the random radius
           float random_radius = radius_distr(gen);
