@@ -284,8 +284,12 @@ export void app() {
   std::vector<sf::CircleShape> shapes;
 
   // Built-in array to store predefined colors
-  sf::Color colors[4]{sf::Color::Cyan, sf::Color::Green, sf::Color::Blue,
-                      sf::Color::Yellow};
+  sf::Color colors[4]{
+      sf::Color::Cyan,  //
+      sf::Color::Green, //
+      sf::Color::Blue,  //
+      sf::Color::Yellow //
+  };
 
   // Index to keep track of the current color
   int color_index{0};
@@ -365,12 +369,12 @@ export void app() {
     shapes.push_back(shape);
 
     // Initial direction for each shape (moving diagonally)
-    directions.push_back(sf::Vector2f(20.f, 20.f));
+    directions.push_back(sf::Vector2f(1.f, 1.f));
   }
 
   // Timer setup
   sf::Clock clock;
-  constexpr float move_interval{0.05f}; // Move shapes every 50 milliseconds
+  constexpr float move_interval{0.004f}; // Move shapes every 50 milliseconds
 
   while (window.isOpen()) {
 
@@ -465,6 +469,17 @@ export void app() {
         if (keyPressed->scancode == sf::Keyboard::Scancode::Escape) {
           window.close();
         }
+
+        if (keyPressed->scancode == sf::Keyboard::Scancode::Backspace) {
+          // Remove the last shape
+          if (shapes.empty()) {
+            window.close();
+          }
+
+          if (!shapes.empty()) {
+            shapes.pop_back();
+          }
+        }
       }
 
       // Mouse events
@@ -503,18 +518,6 @@ export void app() {
           new_shape.setPosition({mouse_x - random_radius,
                                  mouse_y - random_radius}); // Center the shape
           shapes.push_back(new_shape);
-
-          std::cout << "Added shape at: (" << mouse_x << ", " << mouse_y
-                    << ") with radius: " << random_radius << " and color: ("
-                    << (int)random_color.r << ", " << (int)random_color.g
-                    << ", " << (int)random_color.b << ")\n";
-
-        } else if (mouseButtonPressed->button == sf::Mouse::Button::Right) {
-          // Remove the last shape
-          if (!shapes.empty()) {
-            shapes.pop_back();
-            std::cout << "Removed the last shape. \n";
-          }
         }
       }
     }

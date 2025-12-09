@@ -2,7 +2,6 @@ module;
 
 #include <SFML/Graphics.hpp>
 #include <fmt/format.h>
-#include <print>
 #include <string>
 
 export module utilities;
