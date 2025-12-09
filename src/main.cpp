@@ -7,7 +7,7 @@ import fortune_tellter;
 
 int main() {
 
-  app();
+  // app();
   // declare_and_initialize();
   // construction();
   // access_and_modify();
