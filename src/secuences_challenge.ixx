@@ -56,6 +56,7 @@ export module secuences_challenge;
 */
 namespace it_1 {
 export void app() {
+
   // Store data in pre-defined variable
   constexpr int width{200};
   constexpr int height{200};
@@ -89,25 +90,22 @@ export void app() {
         if (keyPressed->scancode == sf::Keyboard::Scancode::Escape)
           window.close();
 
-        if (keyPressed->scancode == sf::Keyboard::Scancode::A) {
-          std::cout << "A was pressed" << std::endl;
+        if (keyPressed->scancode == sf::Keyboard::Scancode::B) {
           for (auto &shape : shapes) {
             shape.setFillColor(sf::Color::Blue);
           }
         }
-        if (keyPressed->scancode == sf::Keyboard::Scancode::B) {
-          std::cout << "B was pressed" << std::endl;
+        if (keyPressed->scancode == sf::Keyboard::Scancode::Y) {
           for (auto &shape : shapes) {
             shape.setFillColor(sf::Color::Yellow);
           }
         }
 
         // C and D will increase and decrease the radius of the circle
-        if (keyPressed->scancode == sf::Keyboard::Scancode::C) {
+        if (keyPressed->scancode == sf::Keyboard::Scancode::I) {
           for (auto &shape : shapes) {
             shape.setRadius(shape.getRadius() + 10.f);
           }
-          std::cout << "C was pressed" << std::endl;
         }
         if (keyPressed->scancode == sf::Keyboard::Scancode::D) {
           for (auto &shape : shapes) {
@@ -185,28 +183,25 @@ export void app() {
         // Store latest key pressed
         char pressed_key{' '};
 
-        if (keyPressed->scancode == sf::Keyboard::Scancode::A) {
-          std::cout << "A was pressed" << std::endl;
-          pressed_key = 'A';
+        if (keyPressed->scancode == sf::Keyboard::Scancode::B) {
+          pressed_key = 'B';
           for (auto &shape : shapes) {
             shape.setFillColor(sf::Color::Blue);
           }
         }
-        if (keyPressed->scancode == sf::Keyboard::Scancode::B) {
-          std::cout << "B was pressed" << std::endl;
-          pressed_key = 'B';
+        if (keyPressed->scancode == sf::Keyboard::Scancode::Y) {
+          pressed_key = 'Y';
           for (auto &shape : shapes) {
             shape.setFillColor(sf::Color::Yellow);
           }
         }
 
         // C and D will increase and decrease the radius of the circle
-        if (keyPressed->scancode == sf::Keyboard::Scancode::C) {
+        if (keyPressed->scancode == sf::Keyboard::Scancode::I) {
           for (auto &shape : shapes) {
             shape.setRadius(shape.getRadius() + 10.f);
           }
-          std::cout << "C was pressed" << std::endl;
-          pressed_key = 'C';
+          pressed_key = 'I';
         }
         if (keyPressed->scancode == sf::Keyboard::Scancode::D) {
           for (auto &shape : shapes) {
@@ -236,8 +231,13 @@ export void app() {
 
           // Print the last keys pressed
           std::cout << "Key history: ";
-          for (char key : key_history) {
-            std::cout << key << ' ';
+          if (key_history[0] != ' ') {
+            std::cout << key_history[0];
+          }
+          for (size_t i = 1; i < key_history.size(); ++i) {
+            if (key_history[i] != ' ') {
+              std::cout << ' ' << '-' << '>' << ' ' << key_history[i];
+            }
           }
           std::cout << "\n";
         }
