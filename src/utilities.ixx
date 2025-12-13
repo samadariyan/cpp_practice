@@ -10,7 +10,7 @@ import pointers_4;
 export void pointer_basics() {
 
   // Pointer basics
-  // pointers_1::pointer_declaration_initialization();
+  pointers_1::pointer_declaration_initialization();
   // pointers_1::assignment_and_access();
   // pointers_1::pointer_to_char();
 
@@ -29,5 +29,5 @@ export void pointer_basics() {
   // Pointer arithmetics
   // pointers_4::pointer_arithmetic_navigation();
   // pointers_4::pointer_arithmetic_distance();
-  pointers_4::pointer_arithmetic_compare_pointers();
+  // pointers_4::pointer_arithmetic_compare_pointers();
 }
