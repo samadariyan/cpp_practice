@@ -39,7 +39,7 @@ export void fortune_teller_good() {
   std::getline(std::cin, name);
 
   while (!end) {
-    fmt::print("Oh dear, I see ");
+    fmt::print("Oh dear {}, I see ", name);
     size_t rand_num = dist(gen);
     fmt::println("{}", predictions[rand_num]);
 
