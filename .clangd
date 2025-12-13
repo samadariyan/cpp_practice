@@ -20,12 +20,3 @@ Completion:
 Diagnostics:
   UnusedIncludes: Strict
 
-# Semantic highlighting
-SemanticHighlighting:
-  Enabled: true
-
-# Simple fallback for files not in compile_commands.json
-FallbackFlags:
-  - "-std=c++20"
-  - "-I./src"
-  - "-I./build/vcpkg_installed/arm64-linux/include"
