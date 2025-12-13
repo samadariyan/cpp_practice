@@ -10,7 +10,7 @@ export struct Position {
 };
 
 export class Pixel {
-public:
+  public:
     Pixel() = default;
     Pixel(uint32_t initial_color, Position initial_position);
 
@@ -18,9 +18,9 @@ public:
     inline uint32_t get_color() const { return m_color; }
 
     void set_position(Position position);
-    inline Position get_position() const{ return m_position; }
+    inline Position get_position() const { return m_position; }
 
-private:
+  private:
     uint32_t m_color{0xFFFFFF}; // Default to white color in hex
     Position m_position;
 };

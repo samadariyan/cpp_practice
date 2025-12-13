@@ -4,8 +4,4 @@
 
 import utilities;
 
-int main(){
-
-    ftxui_palindrome_app::app();
-    
-}
+int main() { ftxui_palindrome_app::app(); }

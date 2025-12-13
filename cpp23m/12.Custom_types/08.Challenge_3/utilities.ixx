@@ -15,17 +15,16 @@ void handleInput(sf::RenderWindow& window) {
     }
 }
 
-export void app(){
+export void app() {
 
-    sf::RenderWindow window(sf::VideoMode(Board::WIDTH * Board::BLOCK_SIZE, 
-                            Board::HEIGHT * Board::BLOCK_SIZE), 
+    sf::RenderWindow window(sf::VideoMode(Board::WIDTH * Board::BLOCK_SIZE,
+                                          Board::HEIGHT * Board::BLOCK_SIZE),
                             "Tetris");
     Board board;
     board.initialize();
     BoardEntity entity(board);
 
-    while ((window.isOpen()))
-    {
+    while ((window.isOpen())) {
         handleInput(window);
         window.clear();
         entity.draw(window);

@@ -6,28 +6,26 @@ module;
 
 export module board;
 
-export class Board{
-    public:
+export class Board {
+  public:
     static constexpr int WIDTH = 10;
     static constexpr int HEIGHT = 20;
     static constexpr float BLOCK_SIZE = 30.0f;
 
     inline static const std::array<sf::Color, 8> BLOCK_COLORS = {
-        sf::Color::Black,      // Empty
-        sf::Color::Cyan,       // I
-        sf::Color::Yellow,     // O
-        sf::Color(128, 0, 128),// T (Purple)
-        sf::Color::Green,      // S
-        sf::Color::Red,        // Z
-        sf::Color::Blue,       // J
-        sf::Color(255, 165, 0) // L (Orange)
+        sf::Color::Black,       // Empty
+        sf::Color::Cyan,        // I
+        sf::Color::Yellow,      // O
+        sf::Color(128, 0, 128), // T (Purple)
+        sf::Color::Green,       // S
+        sf::Color::Red,         // Z
+        sf::Color::Blue,        // J
+        sf::Color(255, 165, 0)  // L (Orange)
     };
 
-    Board() {
-        grid.fill({});
-    }
+    Board() { grid.fill({}); }
 
-    void initialize(){
+    void initialize() {
         for (int y = 0; y < HEIGHT; ++y) {
             for (int x = 0; x < WIDTH; ++x) {
                 grid[y][x] = (x + y) % BLOCK_COLORS.size();
@@ -35,21 +33,19 @@ export class Board{
         }
     }
 
-    std::span<const std::array<int, WIDTH>> get_grid() const {
-        return grid;
-    }
+    std::span<const std::array<int, WIDTH>> get_grid() const { return grid; }
 
-    private:
-        std::array< std::array<int, WIDTH> , HEIGHT> grid; 
+  private:
+    std::array<std::array<int, WIDTH>, HEIGHT> grid;
 };
 
-
 export class BoardEntity {
-public:
+  public:
     explicit BoardEntity(const Board& board) : board_(board) {}
 
     void draw(sf::RenderWindow& window) const {
-        sf::RectangleShape block(sf::Vector2f(Board::BLOCK_SIZE, Board::BLOCK_SIZE));
+        sf::RectangleShape block(
+            sf::Vector2f(Board::BLOCK_SIZE, Board::BLOCK_SIZE));
         block.setOutlineColor(sf::Color::White);
         block.setOutlineThickness(1.0f);
 
@@ -63,6 +59,6 @@ public:
         }
     }
 
-private:
+  private:
     const Board& board_;
 };

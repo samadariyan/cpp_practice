@@ -11,13 +11,14 @@ import utilities;
 import gamestate;
 import board_entity;
 
-export class Game{
+export class Game {
 
-    public:
-
-    Game() : window(sf::VideoMode((Board::WIDTH + 7) * Board::BLOCK_SIZE, 
-                   Board::HEIGHT * Board::BLOCK_SIZE), "Tetris"),
-             entity(state.get_board()) {
+  public:
+    Game()
+        : window(sf::VideoMode((Board::WIDTH + 7) * Board::BLOCK_SIZE,
+                               Board::HEIGHT * Board::BLOCK_SIZE),
+                 "Tetris"),
+          entity(state.get_board()) {
         window.setFramerateLimit(60);
         if (!font.loadFromFile("arial.ttf")) {
             std::cout << "Failed to load font\n";
@@ -32,9 +33,8 @@ export class Game{
         }
     }
 
-
-private: 
-    //Private member functions
+  private:
+    // Private member functions
     void handle_events() {
         sf::Event event;
         while (window.pollEvent(event)) {
@@ -51,7 +51,7 @@ private:
 
     void update() {
         float delta_time = clock.restart().asSeconds();
-        
+
         if (!state.is_game_over()) {
             handle_input();
             state.update(delta_time);
@@ -70,21 +70,18 @@ private:
         if (movement_clock.getElapsedTime().asSeconds() >= move_delay) {
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
                 state.move_left();
-            }
-            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+            } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
                 state.move_right();
-            }
-            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+            } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
                 state.move_down();
-            }
-            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+            } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
                 state.rotate();
             }
             movement_clock.restart();
         }
     }
 
-private: 
+  private:
     sf::RenderWindow window;
     BoardEntity entity;
     GameState state;

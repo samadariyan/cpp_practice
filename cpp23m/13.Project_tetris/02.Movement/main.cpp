@@ -6,7 +6,4 @@
 */
 import utilities;
 
-int main(){
-    app();
-    
-}
+int main() { app(); }

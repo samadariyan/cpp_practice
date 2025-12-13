@@ -1,3 +1,3 @@
 module;
 
-export module utilities; 
+export module utilities;

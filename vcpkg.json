@@ -1,8 +1,8 @@
 {
-  "name": "rocket",
-  "version": "0.1.0",
-  "dependencies": [
-    "sfml",
-    "fmt"
-  ]
+    "name": "rocket",
+    "version": "0.1.0",
+    "dependencies": [
+        "sfml",
+        "fmt"
+    ]
 }

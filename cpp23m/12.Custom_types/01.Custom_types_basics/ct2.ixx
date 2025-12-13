@@ -1,5 +1,5 @@
 /*
-    . Topics: 
+    . Topics:
         . the private and public access specifiers
         . constructors
             . Compiler generated default constructor
@@ -17,77 +17,62 @@
 */
 module;
 
-
 #include <cstdint>
 #include <fmt/format.h>
 
 export module ct2;
 
-namespace ct2
-{
-    export class Pixel{
-        public: 
+namespace ct2 {
+export class Pixel {
+  public:
+    // Default constructor: explicitly defaulted
+    Pixel() = default;
 
-            //Default constructor: explicitly defaulted
-            Pixel() = default;
+    /*
+    //Not recommended in modern C++
+    Pixel(){
 
-            /*
-            //Not recommended in modern C++
-            Pixel(){
+    }
+    */
 
-            }
-            */
+    // Constructor
+    Pixel(uint32_t color, unsigned int x, unsigned int y) {
+        m_color = color;
+        m_pos_x = x;
+        m_pos_y = y;
+    }
 
-            //Constructor
-            Pixel(uint32_t color, unsigned int x, unsigned int y){
-                m_color = color;
-                m_pos_x = x;
-                m_pos_y = y;
-            }
+    // Destructor
+    ~Pixel() {
+        // Release the memory
+        fmt::println("Pixel object destroyed...");
+    }
 
-            //Destructor
-            ~Pixel(){
-                //Release the memory
-                fmt::println("Pixel object destroyed...");
-            }
+    // Getters
+    uint32_t get_color() const {
+        // m_color = 0xffffffff;
+        return m_color;
+    }
 
-            //Getters
-            uint32_t get_color() const{
-                //m_color = 0xffffffff;
-                return m_color;
-            }
+    unsigned int get_x() const { return m_pos_x; }
 
-            unsigned int get_x() const{
-                return m_pos_x;
-            }
+    unsigned int get_y() const { return m_pos_y; }
 
-            unsigned int get_y() const{
-                return m_pos_y;
-            }
+    // Setters:
+    void set_color(uint32_t color) { this->m_color = color; }
 
-            //Setters: 
-            void set_color(uint32_t color){
-                this->m_color = color;
-            }
+    void set_x(unsigned int x) { this->m_pos_x = x; }
 
-            void set_x(unsigned int x){
-                this->m_pos_x = x;
-            }
+    void set_y(unsigned int y) { this->m_pos_y = y; }
 
-            void set_y(unsigned int y){
-                this->m_pos_y = y;
-            }
+    // Setters  for count
+    void set_count(unsigned int count) { this->count = count; }
 
-            //Setters  for count
-            void set_count(unsigned int count){
-                this-> count = count;
-            }
+  private:
+    uint32_t m_color{0xFF000000};
+    unsigned int m_pos_x{0};
+    unsigned int m_pos_y{0};
+    unsigned int count{0};
+};
 
-        private:
-            uint32_t m_color{0xFF000000};
-            unsigned int m_pos_x{0};
-            unsigned int m_pos_y{0}; 
-            unsigned int count{0};
-    };
-    
 } // namespace ct2

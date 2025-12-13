@@ -8,9 +8,9 @@ import attributes;
 import static_vars;
 import recursion;
 
-export void attributes_demo(){
+export void attributes_demo() {
 
-    //[[noretun]] 
+    //[[noretun]]
     /*
     fmt::println("Exiting the program");
     attributes::exit_program();// This call may not return
@@ -26,7 +26,8 @@ export void attributes_demo(){
     //[[nodiscard]]
     /*
     //attributes::calculate_value(); // This will generate a warning
-    int result = attributes::calculate_value(); // This will not generate a warning
+    int result = attributes::calculate_value(); // This will not generate a
+    warning
     */
 
     //[[fallthrough]]
@@ -41,48 +42,48 @@ export void attributes_demo(){
     fmt::println("Value1: {}, Value2: {}", value1, value2);
     */
 
-    //[[assume]] 
+    //[[assume]]
     /*
     attributes::process_data(5);
     */
 
-
     //[[nodiscard]] with message
-    //attributes::compute_important_value();
+    // attributes::compute_important_value();
 }
 
-export void static_vars_demo(){
+export void static_vars_demo() {
     static_vars::user_login();
     static_vars::user_login();
     static_vars::user_login();
 }
 
-export void recursion_demo(){
+export void recursion_demo() {
     auto value = recursion::fibonacci(7);
     fmt::println("value: {}", value);
 
-    //Memoization
+    // Memoization
     auto result = recursion::fibonacci_memo(10);
     fmt::println("Fibonacci of 10 is: {}", result);
 
-    //Iterative
+    // Iterative
     result = recursion::fibonacci_iterative(10);
     fmt::println("Fibonacci of 10 is: {}", result);
 
-
-    //Trying to set up a lambda computing fibonacci:
+    // Trying to set up a lambda computing fibonacci:
     /*
     auto fibonacci_lambda = [](int n){
         if( n < 2) return n;
-        return fibonacci_lambda( n -1 ) + fibonacci_lambda( n - 2); // Compiler error: Can't mention the lambda name
+        return fibonacci_lambda( n -1 ) + fibonacci_lambda( n - 2); // Compiler
+    error: Can't mention the lambda name
     };
     */
 
-   //This works
-   auto fibonacci_lambda = [](this auto& self, int n){
-        if( n < 2) return n;
-        return self( n - 1) + self( n - 2);
-   };
+    // This works
+    auto fibonacci_lambda = [](this auto& self, int n) {
+        if (n < 2)
+            return n;
+        return self(n - 1) + self(n - 2);
+    };
 
     value = fibonacci_lambda(10);
     fmt::println("Fibonacci (lambda) of 10 is: {}", value);

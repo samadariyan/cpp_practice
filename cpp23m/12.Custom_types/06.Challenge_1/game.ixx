@@ -4,11 +4,11 @@ module;
 
 export module game;
 export class Game {
-public:
+  public:
     Game();
     void run();
 
-private:
+  private:
     void handle_key_press(sf::Keyboard::Key key);
     void process_events();
     void render();

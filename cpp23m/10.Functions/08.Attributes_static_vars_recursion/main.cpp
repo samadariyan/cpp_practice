@@ -6,10 +6,9 @@
 
 import utilities;
 
-int main(){
+int main() {
 
-    //attributes_demo();
-    //static_vars_demo();
-    //recursion_demo();
-    
+    // attributes_demo();
+    // static_vars_demo();
+    // recursion_demo();
 }

@@ -7,11 +7,12 @@ export module board_entity;
 import board;
 
 export class BoardEntity {
-public:
+  public:
     explicit BoardEntity(const Board& board) : board_(board) {}
 
     void draw(sf::RenderWindow& window) const {
-        sf::RectangleShape block(sf::Vector2f(Board::BLOCK_SIZE, Board::BLOCK_SIZE));
+        sf::RectangleShape block(
+            sf::Vector2f(Board::BLOCK_SIZE, Board::BLOCK_SIZE));
         block.setOutlineColor(sf::Color::White);
         block.setOutlineThickness(1.0f);
 
@@ -25,6 +26,6 @@ public:
         }
     }
 
-private:
+  private:
     const Board& board_;
 };

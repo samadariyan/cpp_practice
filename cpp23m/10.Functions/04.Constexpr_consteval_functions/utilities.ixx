@@ -6,13 +6,10 @@ export module utilities;
 // to be evaluated at compile time
 /*
 export constexpr int get_value(int multiplier) {
-	return 3 * multiplier; 
+        return 3 * multiplier;
 }
 */
 
-
 // Evaluate this function at compile time. If you can't
 // do that throw a compiler error
-export consteval int get_value(int multiplier) {
-	 return 3 * multiplier; 
-}
+export consteval int get_value(int multiplier) { return 3 * multiplier; }

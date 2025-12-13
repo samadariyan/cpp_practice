@@ -1,5 +1,5 @@
 /*
-     . Move semantics: 
+     . Move semantics:
         .#1: Lvalues and rvalues
 
         .#2: Rvalue references
@@ -20,15 +20,9 @@
 
 import utilities;
 
+int main() {
 
-
-int main(){
-
-    //move_semantics_01_demo();
-    //move_semantics_02_demo();
+    // move_semantics_01_demo();
+    // move_semantics_02_demo();
     move_semantics_03_demo();
-
-
-
-    
 }
