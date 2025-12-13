@@ -1,23 +1,36 @@
-CompileFlags:                     # Tweak the parse settings
-  Add: [-xc++, -Wall]             # treat all files as C++, enable more warnings
-  Remove: [-W*]                   # strip all other warning-related flags
-  Compiler: clang++               # Change argv[0] of compile flags to `clang++`
-  BuiltinHeaders: QueryDriver
+# Simplified clangd configuration for C++23 projects
 
-Style:
-  QuotedHeaders: "src/.*"
-  AngledHeaders: ["/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk"]
+# Use the compile_commands.json for accurate compilation info
+CompileFlags:
+  # Let compile_commands.json handle most flags
+  Add: [
+    "-std=c++23",
+  ]
 
+# Indexing settings
+Index:
+  Background: Build
+  External: true
+
+# Code completion settings
+Completion:
+  AllScopes: true
+  Fuzzy: true
+
+# Diagnostics settings
 Diagnostics:
-  ClangTidy:
-    Add: modernize*
+  UnusedIncludes: Strict
 
-InlayHints:
-  BlockEnd: false
-  Designators: true
+# Reference marking
+References:
+  Inline: true
+
+# Semantic highlighting
+SemanticHighlighting:
   Enabled: true
-  ParameterNames: true
-  DeducedTypes: true
-  DefaultArguments: false
-  TypeNameLimit: 24
 
+# Simple fallback for files not in compile_commands.json
+FallbackFlags:
+  - "-std=c++23"
+  - "-I./src"
+  - "-I./build/linux-arm-clang/vcpkg_installed/arm64-linux/include"
