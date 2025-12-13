@@ -1,24 +1,25 @@
-#The root CMakeLists.txt file.
 cmake_minimum_required(VERSION 3.28)
 
 # Use LLVM for C++ modules but with system headers for SFML compatibility
-set(CMAKE_C_COMPILER "/usr/local/opt/llvm/bin/clang")
-set(CMAKE_CXX_COMPILER "/usr/local/opt/llvm/bin/clang++")
+if(APPLE)
+        set(CMAKE_C_COMPILER "/usr/local/opt/llvm/bin/clang")
+        set(CMAKE_CXX_COMPILER "/usr/local/opt/llvm/bin/clang++")
+endif()
 set(CMAKE_C_COMPILER_LAUNCHER ccache)
 set(CMAKE_CXX_COMPILER_LAUNCHER ccache)
 
 # Add system compiler paths for SFML compatibility
 set(CMAKE_OSX_SYSROOT "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk")
-set(CMAKE_OSX_DEPLOYMENT_TARGET "10.15")
+# set(CMAKE_OSX_DEPLOYMENT_TARGET "15.0")
 
 set(CMAKE_TOOLCHAIN_FILE "$ENV{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake" CACHE STRING "Vcpkg toolchain file")
 
-#The project name is set here. In this case it's MyRocket, but you can change it to whatever you want.
+#The project name is set to MyRocket
 project(MyRocket VERSION 1.0.0 LANGUAGES CXX)
 
 #Require C++20 (more compatible with SFML)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(CXX_STANDARD_REQUIRED ON) #Make C++20 a hard requirement
+set(CXX_STANDARD_REQUIRED ON) # Make C++20 a hard requirement
 set(CMAKE_CXX_STANDARD 20) # Default C++ standard for targets
 set(CMAKE_CXX_SCAN_FOR_MODULES ON) # Re-enable C++ modules
 
@@ -27,8 +28,7 @@ find_package(fmt CONFIG REQUIRED)
 find_package(SFML 3 REQUIRED COMPONENTS Graphics Audio Network CONFIG REQUIRED)
 
 
-#We're using the project name as the target name, but you can change it to make them different.
-#With this setup, the name of the executable will be the same as the project name.
+# the name of the executable will be the same as the project name.
 add_executable(${PROJECT_NAME} src/main.cpp)
 
 # Include directories

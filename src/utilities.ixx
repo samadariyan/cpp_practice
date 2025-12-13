@@ -1,3 +1,4 @@
+
 module;
 
 export module utilities;
@@ -10,7 +11,7 @@ import pointers_4;
 export void pointer_basics() {
 
   // Pointer basics
-  pointers_1::pointer_declaration_initialization();
+  // pointers_1::pointer_declaration_initialization();
   // pointers_1::assignment_and_access();
   // pointers_1::pointer_to_char();
 
@@ -18,7 +19,7 @@ export void pointer_basics() {
   // pointers_2::raw_modifiable_variables();
   // pointers_2::non_const_pointer_to_non_const_data();
   // pointers_2::pointer_to_const();
-  // pointers_2::where_const_applies();
+  pointers_2::where_const_applies();
   // pointers_2::const_data_const_pointer();
   // pointers_2::non_const_data_const_pointer();
 

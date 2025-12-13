@@ -1,0 +1,23 @@
+CompileFlags:                     # Tweak the parse settings
+  Add: [-xc++, -Wall]             # treat all files as C++, enable more warnings
+  Remove: [-W*]                   # strip all other warning-related flags
+  Compiler: clang++               # Change argv[0] of compile flags to `clang++`
+  BuiltinHeaders: QueryDriver
+
+Style:
+  QuotedHeaders: "src/.*"
+  AngledHeaders: ["/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk"]
+
+Diagnostics:
+  ClangTidy:
+    Add: modernize*
+
+InlayHints:
+  BlockEnd: false
+  Designators: true
+  Enabled: true
+  ParameterNames: true
+  DeducedTypes: true
+  DefaultArguments: false
+  TypeNameLimit: 24
+
