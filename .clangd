@@ -1,29 +1,24 @@
-# Simplified clangd configuration for C++23 projects
+# Simplified clangd configuration for C++20 modules project
 
 # Use the compile_commands.json for accurate compilation info
 CompileFlags:
   # Let compile_commands.json handle most flags
   Add: [
-    "-std=c++23",
+    "-std=c++20",
   ]
 
 # Indexing settings
 Index:
   Background: Build
-  External: true
+  External: None
 
 # Code completion settings
 Completion:
   AllScopes: true
-  Fuzzy: true
 
 # Diagnostics settings
 Diagnostics:
   UnusedIncludes: Strict
-
-# Reference marking
-References:
-  Inline: true
 
 # Semantic highlighting
 SemanticHighlighting:
@@ -31,6 +26,6 @@ SemanticHighlighting:
 
 # Simple fallback for files not in compile_commands.json
 FallbackFlags:
-  - "-std=c++23"
+  - "-std=c++20"
   - "-I./src"
-  - "-I./build/linux-arm-clang/vcpkg_installed/arm64-linux/include"
+  - "-I./build/vcpkg_installed/arm64-linux/include"
