@@ -7,6 +7,7 @@ import pointers_1;
 import pointers_2;
 import pointers_3;
 import pointers_4;
+import dynamic_memory_allocation;
 
 export void pointer_basics() {
 
@@ -19,7 +20,7 @@ export void pointer_basics() {
   // pointers_2::raw_modifiable_variables();
   // pointers_2::non_const_pointer_to_non_const_data();
   // pointers_2::pointer_to_const();
-  pointers_2::where_const_applies();
+  // pointers_2::where_const_applies();
   // pointers_2::const_data_const_pointer();
   // pointers_2::non_const_data_const_pointer();
 
@@ -31,4 +32,15 @@ export void pointer_basics() {
   // pointers_4::pointer_arithmetic_navigation();
   // pointers_4::pointer_arithmetic_distance();
   // pointers_4::pointer_arithmetic_compare_pointers();
+}
+
+export void dynamic_memory_allocation_demo() {
+  // dynamic_memory_allocation::pointer_review();
+  dynamic_memory_allocation::pointers_gone_bad();
+  // dynamic_memory_allocation::dynamic_heap_memory();
+  // dynamic_memory_allocation::dangling_pointers();
+  // dynamic_memory_allocation::when_new_fails();
+  // dynamic_memory_allocation::null_ptr_safety();
+  // dynamic_memory_allocation::memory_leaks();
+  // dynamic_memory_allocation::dynamic_arrays();
 }
