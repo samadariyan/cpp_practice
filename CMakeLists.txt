@@ -66,6 +66,7 @@ target_sources(${PROJECT_NAME}
         src/handling_std_strings.ixx
         src/string_literals.ixx
         src/string_views.ixx
+        src/challenges_challenges.ixx
 )
 
 #Link required libraries
