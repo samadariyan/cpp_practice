@@ -2,7 +2,7 @@ module;
 
 #include <fmt/format.h>
 
-export module utilities;
+export module references;
 
 export void declaring_and_using_references() {
 

@@ -259,7 +259,7 @@ export void when_new_fails() {
     //  std::nothrow
     for (size_t i{0}; i < 100; ++i) {
 
-        int* data = new (std::nothrow) int[1000000000000000];
+        int* data = new (std::nothrow) int[100000000000000];
 
         if (data != nullptr) {
             fmt::println("Data allocated");
@@ -373,14 +373,15 @@ export void dynamic_arrays() {
 export void static_vs_dynamic_arrays() {
 
     // Static arrays Vs dynamic arrays
-    int scores[10]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; // Lives on the stack
+    // Lives on the stack
+    int scores[10]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     fmt::println("scores size: {}", std::size(scores));
     for (auto s : scores) {
         fmt::println("value: {}", s);
     }
 
-    int* p_scores1 =
-        new int[10]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}; // Lives on the heap.
+    // Lives on the heap.
+    int* p_scores1 = new int[10]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     // fmt::println( "p_scores1 size: {}" , std::size(p_scores1) );
     /*
     for( auto s : p_scores1){

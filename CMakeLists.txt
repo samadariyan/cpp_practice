@@ -57,6 +57,9 @@ target_sources(${PROJECT_NAME}
         src/pointers_3.ixx
         src/pointers_4.ixx
         src/dynamic_memory_allocation_1.ixx
+        src/shared_pointers.ixx
+        src/unique_pointers.ixx
+        src/references.ixx
 )
 
 #Link required libraries
