@@ -8,7 +8,7 @@ module;
 #include <random>
 #include <vector>
 
-export module utilities;
+export module pointer_challenge;
 
 // Storing our data in an std::vector: The best way to go
 namespace dm_1 {
@@ -23,7 +23,7 @@ export void app() {
     sf::Color shape_color{sf::Color::Green};
     sf::Color background_color{sf::Color::Black};
 
-    sf::RenderWindow window(sf::VideoMode(width, height), title);
+    sf::RenderWindow window(sf::VideoMode({width, height}), title);
 
     // Vector to store multiple shpes
     std::vector<sf::CircleShape> shapes;
@@ -34,7 +34,7 @@ export void app() {
     // Set up the shapes
     for (size_t i{0}; i < 5; ++i) {
         sf::CircleShape shape(circle_radius);
-        shape.setPosition(100.f * (i + 1), 100.f);
+        shape.setPosition({100.f * (i + 1), 100.f});
         shape.setFillColor(sf::Color(50 * i, 100 + (30 * i), 200 - (40 * i)));
         shapes.push_back(shape);
 
@@ -47,15 +47,16 @@ export void app() {
     constexpr float move_interval{0.05f}; // Move shapes every 50 milliseconds
 
     while (window.isOpen()) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed) {
+
+        while (const std::optional event = window.pollEvent()) {
+            if (event->is<sf::Event::Closed>()) {
                 window.close();
             }
 
             // Key Events
-            if (event.type == sf::Event::KeyPressed) {
-                if (event.key.code == sf::Keyboard::Escape) {
+            if (const auto* keyPressed =
+                    event->getIf<sf::Event::KeyPressed>()) {
+                if (keyPressed->scancode == sf::Keyboard::Scancode::Escape) {
                     window.close();
                 }
             }
@@ -110,7 +111,7 @@ export void app() {
     sf::Color shape_color{sf::Color::Green};
     sf::Color background_color{sf::Color::Black};
 
-    sf::RenderWindow window(sf::VideoMode(width, height), title);
+    sf::RenderWindow window(sf::VideoMode({width, height}), title);
 
     // Dynamically allocated arrays for shapes and directions
     sf::CircleShape* shapes = new sf::CircleShape[shape_count];
@@ -119,7 +120,7 @@ export void app() {
     // Set up the shapes
     for (size_t i{0}; i < shape_count; ++i) {
         shapes[i] = sf::CircleShape(circle_radius);
-        shapes[i].setPosition(100.f * (i + 1), 100.f);
+        shapes[i].setPosition({100.f * (i + 1), 100.f});
         shapes[i].setFillColor(
             sf::Color(50 * i, 100 + (30 * i), 200 - (40 * i)));
 
@@ -132,15 +133,15 @@ export void app() {
     constexpr float move_interval{0.05f}; // Move shapes every 50 milliseconds
 
     while (window.isOpen()) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed) {
+        while (const std::optional event = window.pollEvent()) {
+            if (event->is<sf::Event::Closed>()) {
                 window.close();
             }
 
             // Key Events
-            if (event.type == sf::Event::KeyPressed) {
-                if (event.key.code == sf::Keyboard::Escape) {
+            if (const auto* keyPressed =
+                    event->getIf<sf::Event::KeyPressed>()) {
+                if (keyPressed->scancode == sf::Keyboard::Scancode::Escape) {
                     window.close();
                 }
             }
@@ -198,7 +199,7 @@ export void app() {
     sf::Color shape_color{sf::Color::Green};
     sf::Color background_color{sf::Color::Black};
 
-    sf::RenderWindow window(sf::VideoMode(width, height), title);
+    sf::RenderWindow window(sf::VideoMode({width, height}), title);
 
     // Dynamically allocated arrays for shapes and directions using smart
     // pointers
@@ -210,7 +211,7 @@ export void app() {
     // Set up the shapes
     for (size_t i{0}; i < shape_count; ++i) {
         shapes[i] = sf::CircleShape(circle_radius);
-        shapes[i].setPosition(100.f * (i + 1), 100.f);
+        shapes[i].setPosition({100.f * (i + 1), 100.f});
         shapes[i].setFillColor(
             sf::Color(50 * i, 100 + (30 * i), 200 - (40 * i)));
 
@@ -223,15 +224,15 @@ export void app() {
     constexpr float move_interval{0.05f}; // Move shapes every 50 milliseconds
 
     while (window.isOpen()) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed) {
+        while (const std::optional event = window.pollEvent()) {
+            if (event->is<sf::Event::Closed>()) {
                 window.close();
             }
 
             // Key Events
-            if (event.type == sf::Event::KeyPressed) {
-                if (event.key.code == sf::Keyboard::Escape) {
+            if (const auto* keyPressed =
+                    event->getIf<sf::Event::KeyPressed>()) {
+                if (keyPressed->scancode == sf::Keyboard::Scancode::Escape) {
                     window.close();
                 }
             }

@@ -27,7 +27,8 @@ export void tinker_with_shared_pointers() {
         fmt::println("Use count for int_ptr_2: {}", int_ptr_2.use_count());
 
         // Other ways to initialize shared pointers
-        fmt::println("-----");
+        fmt::print("\n---------------------------------------------------\n\n");
+
         std::shared_ptr<int> int_ptr_3; // nullptr
         int_ptr_3 = int_ptr_1;          // Use count : 3
 
@@ -48,8 +49,9 @@ export void tinker_with_shared_pointers() {
         fmt::println("Use count for int_ptr_4: {}", int_ptr_4.use_count());
         fmt::println("Use count for int_ptr_5: {}", int_ptr_5.use_count());
 
+        fmt::print("\n---------------------------------------------------\n\n");
         // Use a shared pointer to manage an already existing piece of memory
-        fmt::println("-----");
+
         fmt::println("Use a shared pointer to manage an already existing piece "
                      "of memory:");
         int* int_ptr_raw = new int(33);
@@ -65,15 +67,18 @@ export void tinker_with_shared_pointers() {
 
         // Reset : decrements the use count and sets the pointer to nullptr
         fmt::println("Reset...");
-        int_ptr_5.reset(); // decrements reference count and sets int_ptr5 to
-                           // nullptr after this if you show use count, for
-                           // int_ptr5,you'll get 0
+        int_ptr_5.reset();
+        // decrements reference count and sets int_ptr5 to
+        // nullptr after this if you show use count, for
+        // int_ptr5,you'll get 0
         fmt::println("Use count for int_ptr_1: {}", int_ptr_1.use_count());
         fmt::println("Use count for int_ptr_2: {}", int_ptr_2.use_count());
         fmt::println("Use count for int_ptr_3: {}", int_ptr_3.use_count());
         fmt::println("Use count for int_ptr_4: {}", int_ptr_4.use_count());
         fmt::println("Use count for int_ptr_5: {}", int_ptr_5.use_count());
         fmt::println("int_ptr_5.get(): {}", fmt::ptr(int_ptr_5.get()));
+
+        fmt::print("\n---------------------------------------------------\n\n");
 
         // Reset the pointers one byt one
         fmt::println("Resetting the pointers... ");
@@ -87,6 +92,7 @@ export void tinker_with_shared_pointers() {
         fmt::println("Use count for int_ptr_4: {}", int_ptr_4.use_count());
         fmt::println("Use count for int_ptr_5: {}", int_ptr_5.use_count());
     }
+    fmt::print("\n---------------------------------------------------\n\n");
 
     // make_shared
     {
@@ -103,12 +109,13 @@ export void tinker_with_shared_pointers() {
         fmt::println("int_ptr6 use count : {}", int_ptr_6.use_count());
 
         fmt::println("Reset ptr6's");
-        int_ptr_6
-            .reset(); // decrement reference count, and set int_ptr6 to nullptr
-                      // if reference count is zero, release the managed memory
+        int_ptr_6.reset();
+        // decrement reference count, and set int_ptr6 to nullptr
+        // if reference count is zero, release the managed memory
         fmt::println("int_ptr_6 use count : {}", int_ptr_6.use_count());
         fmt::println("int_ptr_7 use count : {}", int_ptr_7.use_count());
     }
+    fmt::print("\n---------------------------------------------------\n\n");
 }
 
 } // namespace shared_pointers

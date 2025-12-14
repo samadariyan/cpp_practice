@@ -60,6 +60,7 @@ target_sources(${PROJECT_NAME}
         src/shared_pointers.ixx
         src/unique_pointers.ixx
         src/references.ixx
+        src/pointer_challenge.ixx
 )
 
 #Link required libraries

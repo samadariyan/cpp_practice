@@ -19,7 +19,7 @@ export void declaring_and_using_references() {
     fmt::println("double_data: {}", double_data);
     fmt::println("&double_data: {}", fmt::ptr(&double_data));
 
-    fmt::println("=======================");
+    fmt::println("\n------------------------\n");
 
     fmt::println("ref_int_data: {}", ref_int_data);
     fmt::println("&ref_int_data: {}", fmt::ptr(&ref_int_data));
@@ -35,7 +35,7 @@ export void declaring_and_using_references() {
     fmt::println("double_data: {}", double_data);
     fmt::println("&double_data: {}", fmt::ptr(&double_data));
 
-    fmt::println("=======================");
+    fmt::println("\n------------------------\n");
 
     fmt::println("ref_int_data: {}", ref_int_data);
     fmt::println("&ref_int_data: {}", fmt::ptr(&ref_int_data));
@@ -51,7 +51,7 @@ export void declaring_and_using_references() {
     fmt::println("double_data: {}", double_data);
     fmt::println("&double_data: {}", fmt::ptr(&double_data));
 
-    fmt::println("=======================");
+    fmt::println("\n------------------------\n");
 
     fmt::println("ref_int_data: {}", ref_int_data);
     fmt::println("&ref_int_data: {}", fmt::ptr(&ref_int_data));
@@ -60,6 +60,9 @@ export void declaring_and_using_references() {
 }
 
 export void comparing_pointers_and_references() {
+
+    fmt::println("\n------------------------");
+    fmt::println("\n------------------------\n");
 
     // Declare pointer and reference
     double double_value{12.34};
@@ -72,6 +75,8 @@ export void comparing_pointers_and_references() {
     fmt::println("p_double_value: {} ", fmt::ptr(p_double_value));
     fmt::println("*p_double_value: {}", *p_double_value);
 
+    fmt::println("\n------------------------\n");
+
     // Writting through pointer
     *p_double_value = 15.44;
 
@@ -79,6 +84,8 @@ export void comparing_pointers_and_references() {
     fmt::println("ref_double_value {}: ", ref_double_value);
     fmt::println("p_double_value: {} ", fmt::ptr(p_double_value));
     fmt::println("*p_double_value: {} ", *p_double_value);
+
+    fmt::println("\n------------------------\n");
 
     // Writting through reference
     ref_double_value = 18.44;
@@ -91,8 +98,10 @@ export void comparing_pointers_and_references() {
     // Can't make a reference reference something else
     double some_other_double{78.45};
 
+    fmt::println("\n------------------------\n");
+
     // Make the reference reference something else.
-    // ref_double_value = some_other_double;	 // This is not changing the
+    // ref_double_value = some_other_double; // This is not changing the
     // reference,
     //   it is changing the value of the reference
 
@@ -101,6 +110,8 @@ export void comparing_pointers_and_references() {
     fmt::println("ref_double_value {}: ", ref_double_value);
     fmt::println("p_double_value: {} ", fmt::ptr(p_double_value));
     fmt::println("*p_double_value: {}", *p_double_value);
+
+    fmt::println("\n------------------------\n");
 
     // Make the pointer point to something else
     p_double_value =
@@ -116,6 +127,8 @@ export void comparing_pointers_and_references() {
 
     *p_double_value = 555.5;
 
+    fmt::println("\n------------------------\n");
+
     fmt::println("double_value: {}", double_value);
     fmt::println("ref_double_value: {}", ref_double_value);
     fmt::println("&double_value: {}", fmt::ptr(&double_value));
@@ -125,6 +138,9 @@ export void comparing_pointers_and_references() {
 }
 
 export void references_and_const() {
+
+    fmt::println("\n------------------------");
+    fmt::println("\n------------------------\n");
 
     // Non const reference
     int age{27};
@@ -139,6 +155,9 @@ export void references_and_const() {
 export void ref_with_range_based_for_loop() {
 
     int scores[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+    fmt::println("\n------------------------");
+    fmt::println("\n------------------------\n");
 
     // Printing before change
     fmt::print("Scores : ");

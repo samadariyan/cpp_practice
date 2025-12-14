@@ -8,9 +8,10 @@ export module utilities;
 // import pointers_3;
 // import pointers_4;
 // import dynamic_memory_allocation;
-import unique_pointers;
-import shared_pointers;
+// import unique_pointers;
+// import shared_pointers;
 // import references;
+import pointer_challenge;
 
 // export void pointer_basics() {
 
@@ -49,14 +50,25 @@ import shared_pointers;
 //     dynamic_memory_allocation::static_vs_dynamic_arrays();
 // }
 
-export void smart_pointers_demo() {
-    unique_pointers::tinker_with_unique_pointers();
-    // shared_pointers::tinker_with_shared_pointers();
-}
+// export void smart_pointers_demo() {
+// unique_pointers::tinker_with_unique_pointers();
+// shared_pointers::tinker_with_shared_pointers();
+// }
 
 // export void references() {
-//     declaring_and_using_references();
-//     // comparing_pointers_and_references();
-//     // references_and_const();
-//     // ref_with_range_based_for_loop();
+// declaring_and_using_references();
+// comparing_pointers_and_references();
+// references_and_const();
+// ref_with_range_based_for_loop();
 // }
+
+export void challenge() {
+    // This is the best way to go
+    dm_1::app();
+
+    // This is the worst way to go
+    // dm_2::app();
+
+    // This is the second worst way
+    // dm_3::app();
+}
