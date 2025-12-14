@@ -61,6 +61,11 @@ target_sources(${PROJECT_NAME}
         src/unique_pointers.ixx
         src/references.ixx
         src/pointer_challenge.ixx
+        src/handling_c_strings.ixx
+        src/handling_characters.ixx
+        src/handling_std_strings.ixx
+        src/string_literals.ixx
+        src/string_views.ixx
 )
 
 #Link required libraries

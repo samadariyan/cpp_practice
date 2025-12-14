@@ -39,12 +39,12 @@ export void app() {
         shapes.push_back(shape);
 
         // Initial direction for each shape (moving diagonally)
-        directions.push_back(sf::Vector2f(20.f, 20.f));
+        directions.push_back(sf::Vector2f(1.f, 1.f));
     }
 
     // Timer setup
     sf::Clock clock;
-    constexpr float move_interval{0.05f}; // Move shapes every 50 milliseconds
+    constexpr float move_interval{0.004f}; // Move shapes every 50 milliseconds
 
     while (window.isOpen()) {
 
@@ -125,12 +125,12 @@ export void app() {
             sf::Color(50 * i, 100 + (30 * i), 200 - (40 * i)));
 
         // Initial direction for each shape (moving diagonally)
-        directions[i] = sf::Vector2f(20.f, 20.f);
+        directions[i] = sf::Vector2f(1.f, 1.f);
     }
 
     // Timer setup
     sf::Clock clock;
-    constexpr float move_interval{0.05f}; // Move shapes every 50 milliseconds
+    constexpr float move_interval{0.004f}; // Move shapes every 50 milliseconds
 
     while (window.isOpen()) {
         while (const std::optional event = window.pollEvent()) {
@@ -216,12 +216,12 @@ export void app() {
             sf::Color(50 * i, 100 + (30 * i), 200 - (40 * i)));
 
         // Initial direction for each shape (moving diagonally)
-        directions[i] = sf::Vector2f(20.f, 20.f);
+        directions[i] = sf::Vector2f(1.f, 1.f);
     }
 
     // Timer setup
     sf::Clock clock;
-    constexpr float move_interval{0.05f}; // Move shapes every 50 milliseconds
+    constexpr float move_interval{0.004f}; // Move shapes every 50 milliseconds
 
     while (window.isOpen()) {
         while (const std::optional event = window.pollEvent()) {
