@@ -46,9 +46,8 @@ export void string_view_construction() {
     std::string_view sv5{c_string};
     std::string_view sv6{char_array};
     std::string_view sv7{sv3}; // From another string view
-    std::string_view sv8{
-        char_array2, std::size(char_array2)}; // Non null terminated char array
-                                              // Need to pass in size info
+    std::string_view sv8{char_array2, std::size(char_array2)};
+    // Non null terminated char array Need to pass in size info
     fmt::println("sv3: {}", sv3);
     fmt::println("sv4: {}", sv4);
     fmt::println("sv5: {}", sv5);
@@ -75,6 +74,7 @@ export void std_string_view_change_view_window() {
 
     // Changing the view window : SHRINKING
     const char* c_string1{"The animals have left the region"};
+
     std::string_view sv10{c_string1};
 
     fmt::println("sv10 : {}", sv10);
@@ -103,7 +103,7 @@ export void std_string_view_lifetime() {
         fmt::println("INSIDE --- sv11 is viewing: {}", sv11);
         // string4 goes out of scope here.
     }
-    fmt::println("OUTSIDE --- sv1 is viewing: {}", sv11);
+    fmt::println("OUTSIDE --- sv11 is viewing: {}", sv11);
 }
 
 export void std_string_view_data() {
