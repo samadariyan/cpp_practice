@@ -1,3 +1,4 @@
+
 module;
 
 #include <algorithm>
@@ -7,7 +8,7 @@ module;
 #include <iostream>
 #include <string>
 
-export module challenges_challenges;
+export module char_challenges;
 
 /*
 1. Character Analysis Tool

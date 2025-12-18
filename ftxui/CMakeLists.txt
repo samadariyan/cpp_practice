@@ -25,6 +25,7 @@ set(CMAKE_CXX_SCAN_FOR_MODULES ON) # Re-enable C++ modules
 
 #Find required packages
 find_package(fmt CONFIG REQUIRED)
+find_package(ftxui CONFIG REQUIRED)
 find_package(SFML 3 REQUIRED COMPONENTS Graphics Audio Network CONFIG REQUIRED)
 
 #the name of the executable will be the same as the project name.
@@ -70,7 +71,7 @@ target_sources(${PROJECT_NAME}
 )
 
 #Link required libraries
-target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt SFML::Graphics SFML::Audio SFML::Network SFML::Window SFML::System)
+target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt ftxui::screen ftxui::component SFML::Graphics SFML::Audio SFML::Network SFML::Window SFML::System)
 
 #Add macOS frameworks for SFML
 if(APPLE)

@@ -13,6 +13,6 @@ int main() {
     // handling_c_strings_demo();
     // handling_std_strings_demo();
     // string_views_demo();
-    string_literals_demo();
-    // char_challange();
+    // string_literals_demo();
+    char_challange();
 }

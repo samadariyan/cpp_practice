@@ -17,7 +17,7 @@ import handling_c_strings;
 import handling_std_strings;
 import string_views;
 import string_literals;
-import challenges_challenges;
+import charachter_challenges;
 
 /*
 export void pointer_basics() {
@@ -105,20 +105,18 @@ export void string_views_demo() {
     string_views::std_string_view_behaviors();
 }
 
-*/
 
 export void string_literals_demo() {
     // string_literals::escape_sequences();
     string_literals::raw_string_literals();
 }
 
-/*
+*/
 
 export void char_challange() {
 
-// challenge_1::app();
-// challenge_2::app();
-// challenge_3::app();
-challenge_4::app();
+    // challenge_1::app();
+    // challenge_2::app();
+    challenge_3::app();
+    // challenge_4::app();
 }
-*/
