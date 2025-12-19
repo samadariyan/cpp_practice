@@ -1,8 +1,10 @@
 
+#include <fmt/format.h>
 
 import utilities;
 import compare;
 import math;
+import parameters;
 
 int main() {
     // pointer_basics();
@@ -21,8 +23,9 @@ int main() {
     // char_challange();
 
     // Call the function
-    // using namespace it_1;
+
     // using namespace it_2;
+
     // int x{10};
     // int y{20};
     // auto result = add(7, 3);
@@ -38,7 +41,9 @@ int main() {
     // result = inc_mult(x, y);
     // fmt::println("Result inc_mult: {}", result);
 
-    // // Other functions
+    // Other functions
     // print_number(10);
     // say_hello();
+
+    params();
 }

@@ -22,6 +22,7 @@ import string_literals;
 import challenge1;
 import challenge2;
 import charachter_challenges;
+import parameters;
 
 /*
 export void pointer_basics() {
@@ -140,8 +141,6 @@ challenge_3::app();
 // challenge_4::app();
 }
 
-*/
-
 // Function that takes one input and doesn't return anything
 export void print_number(auto number) {
     fmt::println("number: {}", number); //
@@ -152,3 +151,5 @@ export void say_hello() {
     fmt::println("Hello there");
     return; // You could omit this return statement for functions returning void
 }
+
+*/

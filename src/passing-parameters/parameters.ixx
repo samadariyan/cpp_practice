@@ -1,3 +1,9 @@
+module;
+
+#include <fmt/format.h>
+
+export module parameters;
+
 /*
     . Passing parameters to functions:
         . By value:
@@ -16,9 +22,6 @@
             . Parameters that have default values.
             . They only have to show up in the declaration.
 */
-#include <fmt/format.h>
-
-import utilities;
 
 // Pass by value
 /*
@@ -118,7 +121,7 @@ void greet_teacher(std::string_view name_sv = "teacher", int homeworks = 12,
     fmt::println("The best performing department is {} ", first_dpmt);
 }
 
-int main() {
+export int params() {
 
     // Pass by value
     /*

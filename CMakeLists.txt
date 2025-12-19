@@ -29,7 +29,7 @@ find_package(ftxui CONFIG REQUIRED)
 find_package(SFML 3 REQUIRED COMPONENTS Graphics Audio Network CONFIG REQUIRED)
 
 #the name of the executable will be the same as the project name.
-add_executable(${PROJECT_NAME} src/main.cpp)
+add_executable(${PROJECT_NAME} src/main.cpp src/functions-basics/compare_impl.cpp src/functions-basics/math_impl.cpp)
 
 #Include directories
 target_include_directories(${PROJECT_NAME}
@@ -72,6 +72,8 @@ target_sources(${PROJECT_NAME}
         src/ftxui/ftxui_challenge2.ixx
         src/functions-basics/compare.ixx
         src/functions-basics/math.ixx
+        src/passing-parameters/parameters.ixx
+
 )
 
 #Link required libraries
