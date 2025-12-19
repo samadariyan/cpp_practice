@@ -25,6 +25,7 @@ set(CMAKE_CXX_SCAN_FOR_MODULES ON) # Re-enable C++ modules
 
 #Find required packages
 find_package(fmt CONFIG REQUIRED)
+find_package(ftxui CONFIG REQUIRED)
 find_package(SFML 3 REQUIRED COMPONENTS Graphics Audio Network CONFIG REQUIRED)
 
 #the name of the executable will be the same as the project name.
@@ -49,28 +50,42 @@ target_sources(${PROJECT_NAME}
         PUBLIC
         FILE_SET CXX_MODULES FILES
         src/utilities.ixx
-        src/random_numbers.ixx
-        src/fortune_tellter.ixx
-        src/secuences_challenge.ixx
-        src/pointers_1.ixx
-        src/pointers_2.ixx
-        src/pointers_3.ixx
-        src/pointers_4.ixx
-        src/dynamic_memory_allocation_1.ixx
-        src/shared_pointers.ixx
-        src/unique_pointers.ixx
-        src/references.ixx
-        src/pointer_challenge.ixx
-        src/handling_c_strings.ixx
-        src/handling_characters.ixx
-        src/handling_std_strings.ixx
-        src/string_literals.ixx
-        src/string_views.ixx
-        src/charachter_challenges.ixx
+        src/pointers/pointers_1.ixx
+        src/pointers/pointers_2.ixx
+        src/pointers/pointers_3.ixx
+        src/pointers/pointers_4.ixx
+        src/basic/random_numbers.ixx
+        src/basic/fortune_tellter.ixx
+        src/basic/secuences_challenge.ixx
+        src/memory/dynamic_memory_allocation_1.ixx
+        src/memory/shared_pointers.ixx
+        src/memory/unique_pointers.ixx
+        src/memory/references.ixx
+        src/memory/pointer_challenge.ixx
+        src/chars/handling_c_strings.ixx
+        src/chars/handling_characters.ixx
+        src/chars/handling_std_strings.ixx
+        src/string/string_literals.ixx
+        src/string/string_views.ixx
+        src/string/charachter_challenges.ixx
+        src/ftxui/ftxui_challenge1.ixx
+        src/ftxui/ftxui_challenge2.ixx
+        src/functions-basics/compare.ixx
+        src/functions-basics/math.ixx
 )
 
 #Link required libraries
-target_link_libraries(${PROJECT_NAME} PRIVATE fmt::fmt SFML::Graphics SFML::Audio SFML::Network SFML::Window SFML::System)
+target_link_libraries(${PROJECT_NAME}
+        PRIVATE fmt::fmt
+        PRIVATE ftxui::screen
+        PRIVATE ftxui::dom
+        PRIVATE ftxui::component
+        PRIVATE SFML::Graphics
+        PRIVATE SFML::Audio
+        PRIVATE SFML::Network
+        PRIVATE SFML::Window
+        PRIVATE SFML::System
+)
 
 #Add macOS frameworks for SFML
 if(APPLE)

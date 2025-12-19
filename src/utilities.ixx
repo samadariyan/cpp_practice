@@ -1,6 +1,8 @@
 
 module;
 
+#include <fmt/format.h>
+
 export module utilities;
 
 import pointers_1;
@@ -17,6 +19,8 @@ import handling_c_strings;
 import handling_std_strings;
 import string_views;
 import string_literals;
+import challenge1;
+import challenge2;
 import charachter_challenges;
 
 /*
@@ -111,12 +115,40 @@ export void string_literals_demo() {
     string_literals::raw_string_literals();
 }
 
-*/
+
+export void ftxui_demo() {
+    // The basics
+    // ftxui_it1::app();
+
+    // Interactiviey
+    ftxui_it2::app();
+}
+
+
+
+export void plindrom() {
+    // Start Input
+    ftxui_palindrome_app::app();
+}
+
 
 export void char_challange() {
 
-    // challenge_1::app();
-    // challenge_2::app();
-    challenge_3::app();
-    // challenge_4::app();
+// challenge_1::app();
+// challenge_2::app();
+challenge_3::app();
+// challenge_4::app();
+}
+
+*/
+
+// Function that takes one input and doesn't return anything
+export void print_number(auto number) {
+    fmt::println("number: {}", number); //
+}
+
+// Function that doesnt' take parameters and returns nothing
+export void say_hello() {
+    fmt::println("Hello there");
+    return; // You could omit this return statement for functions returning void
 }
