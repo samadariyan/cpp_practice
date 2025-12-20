@@ -5,24 +5,24 @@ module;
 
 export module utilities;
 
-import pointers_1;
-import pointers_2;
-import pointers_3;
-import pointers_4;
-import dynamic_memory_allocation;
-import unique_pointers;
-import shared_pointers;
-import references;
-import pointer_challenge;
-import handling_characters;
-import handling_c_strings;
-import handling_std_strings;
-import string_views;
-import string_literals;
-import challenge1;
-import challenge2;
-import charachter_challenges;
-import parameters;
+// import pointers_1;
+// import pointers_2;
+// import pointers_3;
+// import pointers_4;
+// import dynamic_memory_allocation;
+// import unique_pointers;
+// import shared_pointers;
+// import references;
+// import pointer_challenge;
+// import handling_characters;
+// import handling_c_strings;
+// import handling_std_strings;
+// import string_views;
+// import string_literals;
+// import challenge1;
+// import challenge2;
+// import charachter_challenges;
+// import parameters;
 
 /*
 export void pointer_basics() {
