@@ -269,7 +269,6 @@ double sum_3d(const double array[][3][2], size_t size) {
     return sum;
 }
 
-*/
 
 // Passing std::array as a function parameter
 double sum(const std::array<double, 10>& scores) {
@@ -279,6 +278,8 @@ double sum(const std::array<double, 10>& scores) {
     }
     return sum;
 }
+
+*/
 
 int main() {
 
@@ -337,10 +338,24 @@ int main() {
     double result = sum_3d(weights_3d, std::size(weights_3d));
     fmt::println("3d array sum: {}", result);
 
-    */
 
     // Passing std::array as a function parameter
     std::array<double, 10> student_scores{10.0, 20.0, 30.0};
     double sum_result = sum(student_scores);
     fmt::println("result is : {}", sum_result);
+
+
+    // For the evaluation to take place at compile time, we have
+    // to remember to store the return value in a constexpr result variable.
+    int run_time_mulitplier{10}; // Run time
+
+    int result = get_value(4);
+    // int result = get_value(run_time_mulitplier);
+    fmt::println("value: {}", result);
+
+    */
+
+    attributes_demo();
+    // static_vars_demo();
+    // recursion_demo();
 }

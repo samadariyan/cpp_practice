@@ -73,6 +73,9 @@ target_sources(${PROJECT_NAME}
         src/functions-basics/compare.ixx
         src/functions-basics/math.ixx
         src/passing-parameters/parameters.ixx
+        src/attributes-static-vars-recursion/attributes.ixx
+        src/attributes-static-vars-recursion/recursion.ixx
+        src/attributes-static-vars-recursion/static_vars.ixx
 
 )
 
