@@ -10,7 +10,11 @@
       "name": "Launch",
       "program": "${command:cmake.launchTargetPath}",
       // "program": "${workspaceFolder}/build/macos-x64/Debug/MyRocket",
-      "args": [],
+      "args": [
+        "17",
+        "+",
+        "65"
+      ],
       "cwd": "${workspaceFolder}",
     },
   ],

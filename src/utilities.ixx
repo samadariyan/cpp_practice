@@ -1,7 +1,7 @@
 
 module;
 
-// #include <fmt/format.h>
+#include <fmt/format.h>
 
 export module utilities;
 
@@ -166,6 +166,72 @@ export void say_hello() {
 // do that throw a compiler error
 // export consteval int get_value(int multiplier) { return 3 * multiplier; }
 
+/*
+export void process_arguments(int argc, char* argv[]) {
+    fmt::println("number of arguments: {}", argc);
+}
+*/
+
+export void calculator(int argc, char* argv[]) {
+
+    // check nomber of args
+    if (argc != 4) {
+        fmt::println("Program can only called with 3 arguments like:");
+        fmt::println("MyRocket a + b");
+        fmt::print("You called with : MyRocket");
+        for (int i{1}; i < argc; ++i) {
+            fmt::print(" {}", argv[i]);
+        }
+        fmt::print("\n");
+        return;
+    }
+    // grab operands
+    double first_number{atof(argv[1])};
+    double second_number{atof(argv[3])};
+
+    if ((first_number == 0.0) || (second_number == 0.0)) {
+        fmt::println("Please use valid numbers ( different from zero) for "
+                     "first and second parameters) ");
+        return;
+    }
+
+    // grab the operation
+    const char* operation{argv[2]};
+    char c;
+
+    if ((std::strlen(operation) == 1) &&
+        ((*operation == '+') || (*operation == '-') || (*operation == 'x') ||
+         (operation[0] == '/'))) {
+        c = *operation;
+    } else {
+        fmt::println("{} is not a valid operation.", *operation);
+        return;
+    }
+
+    // Do the operation
+    switch (c) {
+    case '+':
+        fmt::println("{} + {} = {}", first_number, second_number,
+                     first_number + second_number);
+        break;
+
+    case '-':
+        fmt::println("{} - {} = {}", first_number, second_number,
+                     first_number - second_number);
+        break;
+
+    case 'x':
+        fmt::println("{} x {} = {}", first_number, second_number,
+                     first_number * second_number);
+
+        break;
+    case '/':
+        fmt::println("{} / {} = {}", first_number, second_number,
+                     first_number / second_number);
+        break;
+    }
+}
+
 export void attributes_demo() {
 
     //[[noretun]]
@@ -231,18 +297,18 @@ export void recursion_demo() {
     /*
     auto fibonacci_lambda = [](int n){
         if( n < 2) return n;
-        return fibonacci_lambda( n -1 ) + fibonacci_lambda( n - 2); // Compiler
-    error: Can't mention the lambda name
+        return fibonacci_lambda( n -1 ) + fibonacci_lambda( n - 2); //
+    Compiler error: Can't mention the lambda name
     };
-    */
 
     // This works
     auto fibonacci_lambda = [](this auto& self, int n) {
         if (n < 2)
-            return n;
+        return n;
         return self(n - 1) + self(n - 2);
     };
 
     value = fibonacci_lambda(10);
     fmt::println("Fibonacci (lambda) of 10 is: {}", value);
+    */
 }

@@ -1,5 +1,6 @@
 
 #include <array>
+#include <cstddef>
 #include <fmt/format.h>
 
 import utilities;
@@ -281,81 +282,85 @@ double sum(const std::array<double, 10>& scores) {
 
 */
 
-int main() {
+// int main() {
 
-    /*
+/*
 
-    // Passing array function parameters
+// Passing array function parameters
 
-    double my_scores[]{10.5, 34.3, 4.8, 6.5};
-    fmt::println("sizeof(my_scores) : {}", sizeof(my_scores));
+double my_scores[]{10.5, 34.3, 4.8, 6.5};
+fmt::println("sizeof(my_scores) : {}", sizeof(my_scores));
 
-    double result = sum(my_scores, std::size(my_scores));
-    fmt::println("result : {}", result);
-
-
-    // Passing (seemingly) sized array function parameters
-
-    double student_scores[]{10.0, 20.0, 30.0, 40.0, 50.0, 60.0};
-    // Less than 5 parameters
-
-    double result = sum(student_scores, std::size(student_scores));
-    fmt::println("result : {}", result);
+double result = sum(my_scores, std::size(my_scores));
+fmt::println("result : {}", result);
 
 
-    // Enforce the size. Pass the sized array by reference
+// Passing (seemingly) sized array function parameters
 
-    double student_scores[]{
-        10.0, 20.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100.0,
-    };
+double student_scores[]{10.0, 20.0, 30.0, 40.0, 50.0, 60.0};
+// Less than 5 parameters
 
-    double sum_result = sum(student_scores);
-
-    fmt::println("result is : {}", sum_result);
+double result = sum(student_scores, std::size(student_scores));
+fmt::println("result : {}", result);
 
 
-    // Passing multi-dimensional arrays as function parameters (2d and 3d)
-    double weights[][3]{{10.0, 20.0, 30.0},
-                        {40.0, 50.0, 60.0},
-                        {70.0, 80.0, 90.0},
-                        {100.0, 110.0, 120.0}};
+// Enforce the size. Pass the sized array by reference
 
-    double result = sum(weights, std::size(weights));
-    fmt::println("2d array sum: {}", result);
+double student_scores[]{
+    10.0, 20.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0, 100.0,
+};
 
+double sum_result = sum(student_scores);
 
-    double weights_3d[][3][2]{{
-                                  {10, 20},
-                                  {30, 40},
-                                  {50, 60},
-                              },
-                              {
-                                  {70, 80},
-                                  {90, 100},
-                                  {110, 120},
-                              }};
-
-    double result = sum_3d(weights_3d, std::size(weights_3d));
-    fmt::println("3d array sum: {}", result);
+fmt::println("result is : {}", sum_result);
 
 
-    // Passing std::array as a function parameter
-    std::array<double, 10> student_scores{10.0, 20.0, 30.0};
-    double sum_result = sum(student_scores);
-    fmt::println("result is : {}", sum_result);
+// Passing multi-dimensional arrays as function parameters (2d and 3d)
+double weights[][3]{{10.0, 20.0, 30.0},
+                    {40.0, 50.0, 60.0},
+                    {70.0, 80.0, 90.0},
+                    {100.0, 110.0, 120.0}};
+
+double result = sum(weights, std::size(weights));
+fmt::println("2d array sum: {}", result);
 
 
-    // For the evaluation to take place at compile time, we have
-    // to remember to store the return value in a constexpr result variable.
-    int run_time_mulitplier{10}; // Run time
+double weights_3d[][3][2]{{
+                              {10, 20},
+                              {30, 40},
+                              {50, 60},
+                          },
+                          {
+                              {70, 80},
+                              {90, 100},
+                              {110, 120},
+                          }};
 
-    int result = get_value(4);
-    // int result = get_value(run_time_mulitplier);
-    fmt::println("value: {}", result);
+double result = sum_3d(weights_3d, std::size(weights_3d));
+fmt::println("3d array sum: {}", result);
 
-    */
 
-    attributes_demo();
-    // static_vars_demo();
-    // recursion_demo();
+// Passing std::array as a function parameter
+std::array<double, 10> student_scores{10.0, 20.0, 30.0};
+double sum_result = sum(student_scores);
+fmt::println("result is : {}", sum_result);
+
+
+// For the evaluation to take place at compile time, we have
+// to remember to store the return value in a constexpr result variable.
+int run_time_mulitplier{10}; // Run time
+
+int result = get_value(4);
+// int result = get_value(run_time_mulitplier);
+fmt::println("value: {}", result);
+
+*/
+
+// attributes_demo();
+// static_vars_demo();
+// recursion_demo();
+
+int main(int argc, char* argv[]) {
+    // process_arguments(argc, argv);
+    calculator(argc, argv);
 }
