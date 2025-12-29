@@ -2,6 +2,7 @@
 module;
 
 #include <fmt/format.h>
+#include <iostream>
 
 export module utilities;
 
@@ -24,9 +25,13 @@ export module utilities;
 // import charachter_challenges;
 // import parameters;
 
-import attributes;
-import static_vars;
-import recursion;
+// import attributes;
+// import static_vars;
+// import recursion;
+
+import overloading_1;
+import overloading_2;
+import overloading_4;
 
 /*
 export void pointer_basics() {
@@ -167,114 +172,49 @@ export void say_hello() {
 // export consteval int get_value(int multiplier) { return 3 * multiplier; }
 
 /*
-export void process_arguments(int argc, char* argv[]) {
-    fmt::println("number of arguments: {}", argc);
-}
-*/
-
-export void calculator(int argc, char* argv[]) {
-
-    // check nomber of args
-    if (argc != 4) {
-        fmt::println("Program can only called with 3 arguments like:");
-        fmt::println("MyRocket a + b");
-        fmt::print("You called with : MyRocket");
-        for (int i{1}; i < argc; ++i) {
-            fmt::print(" {}", argv[i]);
-        }
-        fmt::print("\n");
-        return;
-    }
-    // grab operands
-    double first_number{atof(argv[1])};
-    double second_number{atof(argv[3])};
-
-    if ((first_number == 0.0) || (second_number == 0.0)) {
-        fmt::println("Please use valid numbers ( different from zero) for "
-                     "first and second parameters) ");
-        return;
-    }
-
-    // grab the operation
-    const char* operation{argv[2]};
-    char c;
-
-    if ((std::strlen(operation) == 1) &&
-        ((*operation == '+') || (*operation == '-') || (*operation == 'x') ||
-         (operation[0] == '/'))) {
-        c = *operation;
-    } else {
-        fmt::println("{} is not a valid operation.", *operation);
-        return;
-    }
-
-    // Do the operation
-    switch (c) {
-    case '+':
-        fmt::println("{} + {} = {}", first_number, second_number,
-                     first_number + second_number);
-        break;
-
-    case '-':
-        fmt::println("{} - {} = {}", first_number, second_number,
-                     first_number - second_number);
-        break;
-
-    case 'x':
-        fmt::println("{} x {} = {}", first_number, second_number,
-                     first_number * second_number);
-
-        break;
-    case '/':
-        fmt::println("{} / {} = {}", first_number, second_number,
-                     first_number / second_number);
-        break;
-    }
-}
-
 export void attributes_demo() {
 
     //[[noretun]]
-    /*
     fmt::println("Exiting the program");
     attributes::exit_program();// This call may not return
     fmt::println("Program ends properly");
     */
 
-    //[[deprecated]]
-    /*
-    attributes::old_function(); // This will generate a warning
-    attributes::new_function(); // This will not generate a warning
-    */
+//[[deprecated]]
+/*
+attributes::old_function(); // This will generate a warning
+attributes::new_function(); // This will not generate a warning
+*/
 
-    //[[nodiscard]]
-    /*
-    //attributes::calculate_value(); // This will generate a warning
-    int result = attributes::calculate_value(); // This will not generate a
-    warning
-    */
+//[[nodiscard]]
+/*
+//attributes::calculate_value(); // This will generate a warning
+int result = attributes::calculate_value(); // This will not generate a
+warning
+*/
 
-    //[[fallthrough]]
-    /*
-    attributes::handle_switch(1);
-    */
+//[[fallthrough]]
+/*
+attributes::handle_switch(1);
+*/
 
-    //[[likely]] and [[unlikely]]
-    /*
-    auto value1 = attributes::process_value(42);
-    auto value2 = attributes::process_value(43);
-    fmt::println("Value1: {}, Value2: {}", value1, value2);
-    */
+//[[likely]] and [[unlikely]]
+/*
+auto value1 = attributes::process_value(42);
+auto value2 = attributes::process_value(43);
+fmt::println("Value1: {}, Value2: {}", value1, value2);
+*/
 
-    //[[assume]]
-    /*
-    attributes::process_data(5);
-    */
+//[[assume]]
+/*
+attributes::process_data(5);
 
-    //[[nodiscard]] with message
-    // attributes::compute_important_value();
+//[[nodiscard]] with message
+// attributes::compute_important_value();
 }
+*/
 
+/*
 export void static_vars_demo() {
     static_vars::user_login();
     static_vars::user_login();
@@ -294,7 +234,6 @@ export void recursion_demo() {
     fmt::println("Fibonacci of 10 is: {}", result);
 
     // Trying to set up a lambda computing fibonacci:
-    /*
     auto fibonacci_lambda = [](int n){
         if( n < 2) return n;
         return fibonacci_lambda( n -1 ) + fibonacci_lambda( n - 2); //
@@ -310,5 +249,124 @@ export void recursion_demo() {
 
     value = fibonacci_lambda(10);
     fmt::println("Fibonacci (lambda) of 10 is: {}", value);
-    */
+}
+*/
+
+/*
+export void process_arguments(int argc, char* argv[]) {
+    fmt::println("number of arguments: {}", argc);
+}
+
+
+export void calculator(int argc, char* argv[]) {
+
+// check nomber of args
+if (argc != 4) {
+    fmt::println("Program can only called with 3 arguments like:");
+    fmt::println("MyRocket a + b");
+    fmt::print("You called with : MyRocket");
+    for (int i{1}; i < argc; ++i) {
+        fmt::print(" {}", argv[i]);
+    }
+    fmt::print("\n");
+    return;
+}
+// grab operands
+double first_number{atof(argv[1])};
+double second_number{atof(argv[3])};
+
+if ((first_number == 0.0) || (second_number == 0.0)) {
+    fmt::println("Please use valid numbers ( different from zero) for "
+    "first and second parameters) ");
+    return;
+}
+
+// grab the operation
+const char* operation{argv[2]};
+char c;
+
+if ((std::strlen(operation) == 1) &&
+((*operation == '+') || (*operation == '-') || (*operation == 'x') ||
+(operation[0] == '/'))) {
+    c = *operation;
+} else {
+    fmt::println("{} is not a valid operation.", *operation);
+return;
+}
+
+// Do the operation
+switch (c) {
+    case '+':
+    fmt::println("{} + {} = {}", first_number, second_number,
+    first_number + second_number);
+    break;
+
+    case '-':
+    fmt::println("{} - {} = {}", first_number, second_number,
+    first_number - second_number);
+    break;
+
+    case 'x':
+    fmt::println("{} x {} = {}", first_number, second_number,
+    first_number * second_number);
+
+    break;
+    case '/':
+    fmt::println("{} / {} = {}", first_number, second_number,
+    first_number / second_number);
+    break;
+}
+}
+*/
+
+export void overloading_1_demo() {
+    using namespace overloading_1;
+    print(10);
+    print(10, 20);
+    print(3.14);
+    print("Hello World!");
+}
+
+export void overloading_2_demo() {
+    using namespace overloading_2;
+    int array[] = {1, 2, 3, 4, 5};
+    process(array, 5); // Calls the array version
+    process(42);       // Calls the single value version
+}
+
+/*
+    . Overloading std::getline
+    . std::getline is overloaded in the C++ standard library to allow reading a
+   whole line or reading up to a specific delimiter. . These are examples I
+   picked up for this lecture, but the exhaustive list of overloads should be
+   checked in the standard library documentation.
+*/
+export void overloading_3_demo() {
+    std::string line;
+
+    // Read a whole line from standard input
+    fmt::print("Enter a line: ");
+    std::getline(std::cin, line);
+    fmt::println("You entered: {}", line);
+
+    // Read up to a specific delimiter (comma)
+    fmt::print("Enter values separated by commas: ");
+    std::getline(std::cin, line, ',');
+    fmt::println("First value: {}", line);
+}
+
+export void overloading_4_demo() {
+    using namespace overloading_4;
+    fmt::print("Rolling a 6-sided die: {}\n", roll());
+    fmt::print("Rolling a 20-sided die: {}\n", roll(20));
+    fmt::print("Rolling 3 6-sided dice: {}\n", roll(6, 3));
+
+    fmt::print("Area of a square with side 2.0: {}\n", area(2.0));
+    fmt::print("Area of a rectangle with length 2.0 and width 3.0: {}\n",
+               area(2.0, 3.0));
+    fmt::print("Area of a circle with radius 1.0: {}\n", area(1.0, true));
+
+    respond();
+    respond("What is the meaning of life?");
+    respond("What is the meaning of life?", true);
 }

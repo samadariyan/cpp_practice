@@ -282,6 +282,10 @@ double sum(const std::array<double, 10>& scores) {
 
 */
 
+// attributes_demo();
+// static_vars_demo();
+// recursion_demo();
+
 // int main() {
 
 /*
@@ -354,13 +358,19 @@ int result = get_value(4);
 // int result = get_value(run_time_mulitplier);
 fmt::println("value: {}", result);
 
-*/
 
-// attributes_demo();
-// static_vars_demo();
-// recursion_demo();
 
 int main(int argc, char* argv[]) {
     // process_arguments(argc, argv);
     calculator(argc, argv);
+}
+
+*/
+
+int main() {
+
+    overloading_1_demo();
+    overloading_2_demo();
+    overloading_3_demo();
+    overloading_4_demo();
 }

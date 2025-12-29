@@ -76,6 +76,9 @@ target_sources(${PROJECT_NAME}
         src/attributes-static-vars-recursion/attributes.ixx
         src/attributes-static-vars-recursion/recursion.ixx
         src/attributes-static-vars-recursion/static_vars.ixx
+        src/function-overloading/overloading_1.ixx
+        src/function-overloading/overloading_2.ixx
+        src/function-overloading/overloading_4.ixx
 
 )
 
