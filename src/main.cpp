@@ -367,10 +367,22 @@ int main(int argc, char* argv[]) {
 
 */
 
+/*
 int main() {
 
     overloading_1_demo();
     overloading_2_demo();
     overloading_3_demo();
     overloading_4_demo();
+}
+
+*/
+
+int main() {
+    // declare_and_use_lambda_func();
+    // capture_lists();
+    // capture_by_value_modification();
+    // capture_by_reference_modification();
+    // capture_all_by_value();
+    capture_all_by_reference();
 }
