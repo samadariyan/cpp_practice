@@ -10,11 +10,13 @@ export module utilities;
 // import pointers_2;
 // import pointers_3;
 // import pointers_4;
+
 // import dynamic_memory_allocation;
 // import unique_pointers;
 // import shared_pointers;
 // import references;
 // import pointer_challenge;
+
 // import handling_characters;
 // import handling_c_strings;
 // import handling_std_strings;
@@ -23,15 +25,16 @@ export module utilities;
 // import challenge1;
 // import challenge2;
 // import charachter_challenges;
+
 // import parameters;
 
 // import attributes;
 // import static_vars;
 // import recursion;
 
-import overloading_1;
-import overloading_2;
-import overloading_4;
+// import overloading_1;
+// import overloading_2;
+// import overloading_4;
 
 /*
 export void pointer_basics() {
@@ -378,87 +381,68 @@ export void overloading_4_demo() {
 
 */
 
+/*
 // Declaring and using lambdas
 export void declare_and_use_lambda_func() {
-    /*
-        Lambda function signature :
-                                                                [capture list]
-       (parameters) ->return type{
-                                                                                // Function body
-                                                                }
-        */
-    // Declaring a lambda function and calling it through a name
-    /*
-    auto func = [](){
-        fmt::println("Hello World!");
-    };
-
-    //Call the lambda
-    func();
-    func();
+    Lambda function signature :
+                                [capture list] (parameters) ->return type{
+                                // Function body
+                                }
     */
 
-    // Declare a lambda function and call it directly
-    /*
-    [](){
-        fmt::println("Hello World!");
-    }();
-    */
+/*
+// Declaring a lambda function and calling it through a name
+auto func = []() { fmt::println("Hello World!"); };
 
-    // Lambda function that takes parameters
-    /*
-    [](double a, double b){
-         fmt::println( "a + b: {}" , (a + b)  );
-    }(10.0, 22.0);
-    */
+// Call the lambda
+func();
+func();
 
-    /*
-        auto func1 = [](double a, double b){
-                fmt::println( "a + b: {}" , (a + b)  );
-        };
+// Declare a lambda function and call it directly
+[]() { fmt::println("Hello World!"); }();
 
-        func1(10,20);
-        func1(5,7);
-    */
+// Lambda function that takes parameters
+[](double a, double b) { fmt::println("a + b: {}", (a + b)); }(10.0, 22.0);
 
-    // Lambda function that returns something
-    /*
-     auto result = [](double a, double b){
-         return a + b;
-     }(10,60);
-     fmt::println("Result: {}", result);
+auto func1 = [](double a, double b) { fmt::println("a + b: {}", (a + b)); };
 
-     fmt::println("Result: {} " , [](double a, double b){
-                 return a + b;
-         }(10,60) );
-     */
+func1(10, 20);
+func1(5, 7);
 
-    // Store the lambda name in a variable
-    /*
-    auto func1 = [](double a, double b){
-        return a + b;
-    };
 
-    auto result1 = func1(23,7);
-    auto result2 = func1(9,45);
+// Lambda function that returns something
+auto result = [](double a, double b) { return a + b; }(10, 60);
+fmt::println("Result: {}", result);
 
-    fmt::println( "Result1: {} " , result1);
-    fmt::println( "Result2: {} " , result2);
-    fmt::println( "direct call: {} " , func1(5,2));
-    */
+fmt::println("Result: {} ",
+             [](double a, double b) { return a + b; }(10, 60));
 
-    // Explicitly specify the return type
-    auto func3 = [](double a, double b) -> int { return a + b; };
+*/
 
-    auto func4 = [](double a, double b) { return a + b; };
+/*
+// Store the lambda name in a variable
+auto func1 = [](double a, double b) { return a + b; };
 
-    auto result3 = func3(10.1, 20.2);
-    auto result4 = func4(10.1, 20.2);
+auto result1 = func1(23, 7);
+auto result2 = func1(9, 45);
 
-    fmt::println("result3 : {}", result3);
-    fmt::println("result4 : {}", result4);
-    fmt::println("sizeof(result3) : {}", sizeof(result3)); // 4
-    fmt::println("sizeof(result4) : {}", sizeof(result4)); // 8
+fmt::println("Result1: {} ", result1);
+fmt::println("Result2: {} ", result2);
+fmt::println("direct call: {} ", func1(5, 2));
+
+// Explicitly specify the return type
+auto func3 = [](double a, double b) -> int { return a + b; };
+
+auto func4 = [](double a, double b) { return a + b; };
+
+auto result3 = func3(10.1, 20.2);
+auto result4 = func4(10.1, 20.2);
+
+fmt::println("result3 : {}", result3);
+fmt::println("result4 : {}", result4);
+fmt::println("sizeof(result3) : {}", sizeof(result3)); // 4
+fmt::println("sizeof(result4) : {}", sizeof(result4)); // 8
+
 }
 
 export void capture_lists() {
@@ -466,7 +450,9 @@ export void capture_lists() {
     double a{10};
     double b{20};
 
-    auto func = [a, b]() { fmt::println("a + b: {}", (a + b)); };
+    auto func = [a, b]() {
+        fmt::println("a + b = {} + {} = {}", a, b, (a + b));
+    };
     func();
 }
 
@@ -478,23 +464,29 @@ export void capture_by_value_modification() {
         x += 5;
         fmt::println("Inside lambda (modified copy): {}", x);
     };
+
+    // print x befor, in lamda and after
     fmt::println("Original value before lambda: {}", x);
     lambda();
     fmt::println("Original value after lambda: {}", x); // Unchanged
 }
+
 
 export void capture_by_reference_modification() {
     int x{10};
 
     // Lambda capturing 'x' by reference
     auto lambda = [&x]() {
-        x += 5; // Modifies the original variable
+        x += 5;
+        // Modifies the original variable
+
         fmt::println("Inside lambda (modified original): {}", x);
     };
 
     fmt::println("Original value before lambda: {}", x);
     lambda();
-    fmt::println("Original value after lambda: {}", x); // Changed
+    fmt::println("Original value after lambda: {}", x);
+    // Changed
 }
 
 export void capture_all_by_value() {
@@ -513,8 +505,8 @@ export void capture_all_by_value() {
 
     fmt::println("Original values before lambda: x = {}, y = {}", x, y);
     lambda();
-    fmt::println("Original values after lambda: x = {}, y = {}", x,
-                 y); // Unchanged
+    fmt::println("Original values after lambda: x = {}, y = {}", x, y);
+    // Unchanged
 }
 
 export void capture_all_by_reference() {
@@ -533,6 +525,8 @@ export void capture_all_by_reference() {
 
     fmt::println("Original values before lambda: x = {}, y = {}", x, y);
     lambda();
-    fmt::println("Original values after lambda: x = {}, y = {}", x,
-                 y); // Changed
+    fmt::println("Original values after lambda: x = {}, y = {}", x, y);
+    // Changed
 }
+
+*/

@@ -365,9 +365,6 @@ int main(int argc, char* argv[]) {
     calculator(argc, argv);
 }
 
-*/
-
-/*
 int main() {
 
     overloading_1_demo();
@@ -376,8 +373,6 @@ int main() {
     overloading_4_demo();
 }
 
-*/
-
 int main() {
     // declare_and_use_lambda_func();
     // capture_lists();
@@ -385,4 +380,10 @@ int main() {
     // capture_by_reference_modification();
     // capture_all_by_value();
     capture_all_by_reference();
+}
+
+*/
+
+int main() {
+    //
 }
