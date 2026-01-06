@@ -282,10 +282,6 @@ double sum(const std::array<double, 10>& scores) {
 
 */
 
-// attributes_demo();
-// static_vars_demo();
-// recursion_demo();
-
 // int main() {
 
 /*
@@ -385,5 +381,18 @@ int main() {
 */
 
 int main() {
-    //
+
+    attributes_demo();
+    // static_vars_demo();
+    // recursion_demo();
 }
+
+/*
+
+int main() {
+
+    // it_1::app();
+    it_2::app();
+}
+
+*/

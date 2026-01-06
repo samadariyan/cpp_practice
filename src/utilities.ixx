@@ -1,6 +1,7 @@
 
 module;
 
+#include <SFML/Graphics.hpp>
 #include <fmt/format.h>
 #include <iostream>
 
@@ -28,13 +29,13 @@ export module utilities;
 
 // import parameters;
 
-// import attributes;
-// import static_vars;
-// import recursion;
-
 // import overloading_1;
 // import overloading_2;
 // import overloading_4;
+
+import attributes;
+import static_vars;
+import recursion;
 
 /*
 export void pointer_basics() {
@@ -173,87 +174,6 @@ export void say_hello() {
 // Evaluate this function at compile time. If you can't
 // do that throw a compiler error
 // export consteval int get_value(int multiplier) { return 3 * multiplier; }
-
-/*
-export void attributes_demo() {
-
-    //[[noretun]]
-    fmt::println("Exiting the program");
-    attributes::exit_program();// This call may not return
-    fmt::println("Program ends properly");
-    */
-
-//[[deprecated]]
-/*
-attributes::old_function(); // This will generate a warning
-attributes::new_function(); // This will not generate a warning
-*/
-
-//[[nodiscard]]
-/*
-//attributes::calculate_value(); // This will generate a warning
-int result = attributes::calculate_value(); // This will not generate a
-warning
-*/
-
-//[[fallthrough]]
-/*
-attributes::handle_switch(1);
-*/
-
-//[[likely]] and [[unlikely]]
-/*
-auto value1 = attributes::process_value(42);
-auto value2 = attributes::process_value(43);
-fmt::println("Value1: {}, Value2: {}", value1, value2);
-*/
-
-//[[assume]]
-/*
-attributes::process_data(5);
-
-//[[nodiscard]] with message
-// attributes::compute_important_value();
-}
-*/
-
-/*
-export void static_vars_demo() {
-    static_vars::user_login();
-    static_vars::user_login();
-    static_vars::user_login();
-}
-
-export void recursion_demo() {
-    auto value = recursion::fibonacci(7);
-    fmt::println("value: {}", value);
-
-    // Memoization
-    auto result = recursion::fibonacci_memo(10);
-    fmt::println("Fibonacci of 10 is: {}", result);
-
-    // Iterative
-    result = recursion::fibonacci_iterative(10);
-    fmt::println("Fibonacci of 10 is: {}", result);
-
-    // Trying to set up a lambda computing fibonacci:
-    auto fibonacci_lambda = [](int n){
-        if( n < 2) return n;
-        return fibonacci_lambda( n -1 ) + fibonacci_lambda( n - 2); //
-    Compiler error: Can't mention the lambda name
-    };
-
-    // This works
-    auto fibonacci_lambda = [](this auto& self, int n) {
-        if (n < 2)
-        return n;
-        return self(n - 1) + self(n - 2);
-    };
-
-    value = fibonacci_lambda(10);
-    fmt::println("Fibonacci (lambda) of 10 is: {}", value);
-}
-*/
 
 /*
 export void process_arguments(int argc, char* argv[]) {
@@ -528,5 +448,161 @@ export void capture_all_by_reference() {
     fmt::println("Original values after lambda: x = {}, y = {}", x, y);
     // Changed
 }
+
+*/
+
+export void attributes_demo() {
+
+    //[[noretun]]
+    fmt::println("Exiting the program");
+    attributes::exit_program(); // This call may not return
+    fmt::println("Program ends properly");
+
+    //[[deprecated]]
+    attributes::old_function(); // This will generate a warning
+    attributes::new_function(); // This will not generate a warning
+
+    //[[nodiscard]]
+
+    // attributes::calculate_value(); // This will generate a warning
+    int result = attributes::calculate_value();
+    // This will not generate a warning
+
+    //[[fallthrough]]
+    attributes::handle_switch(1);
+
+    //[[likely]] and [[unlikely]]
+
+    auto value1 = attributes::process_value(42);
+    auto value2 = attributes::process_value(43);
+    fmt::println("Value1: {}, Value2: {}", value1, value2);
+
+    //[[assume]]
+    attributes::process_data(5);
+
+    //[[nodiscard]] with message
+    // attributes::compute_important_value();
+}
+
+/*
+
+export void static_vars_demo() {
+    static_vars::user_login();
+    static_vars::user_login();
+    static_vars::user_login();
+}
+
+*/
+
+/*
+
+export void recursion_demo() {
+    auto value = recursion::fibonacci(7);
+    fmt::println("value: {}", value);
+
+    // Memoization
+    auto result = recursion::fibonacci_memo(10);
+    fmt::println("Fibonacci of 10 is: {}", result);
+
+    // Iterative
+    result = recursion::fibonacci_iterative(10);
+    fmt::println("Fibonacci of 10 is: {}", result);
+
+    // Trying to set up a lambda computing fibonacci:
+    auto fibonacci_lambda = [](int n){
+        if( n < 2) return n;
+        return fibonacci_lambda( n -1 ) + fibonacci_lambda( n - 2);
+    // Compiler error: Can't mention the lambda name
+    };
+
+    // This works
+    auto fibonacci_lambda = [](this auto& self, int n) {
+        if (n < 2)
+        return n;
+        return self(n - 1) + self(n - 2);
+    };
+
+    value = fibonacci_lambda(10);
+    fmt::println("Fibonacci (lambda) of 10 is: {}", value);
+
+}
+
+*/
+
+/*
+
+namespace it_1 {
+
+export void app() {
+
+    // Initialization
+    sf::RenderWindow window(sf::VideoMode({200, 200}), "SFML works!");
+    sf::CircleShape shape(100.f);
+    shape.setFillColor(sf::Color::Green);
+
+    while (window.isOpen()) {
+        // Event processing
+
+        while (const std::optional event = window.pollEvent()) {
+            if (event->is<sf::Event::Closed>())
+                window.close();
+        }
+
+        // Rendering
+        window.clear();
+        window.draw(shape);
+        window.display();
+    }
+}
+
+} // namespace it_1
+
+
+namespace it_2 {
+// Initialization
+void init(sf::RenderWindow& window, sf::CircleShape& circle) {
+
+    // Configure the window
+    window.create(sf::VideoMode({800, 600}), "Sfml at work!");
+
+    // Configure the circle
+    circle.setRadius(100.f);
+    circle.setFillColor(sf::Color::Green);
+    circle.setPosition({300.f, 200.f});
+}
+
+// Event processing
+void process_events(sf::RenderWindow& window) {
+
+    while (const std::optional event = window.pollEvent()) {
+        if (event->is<sf::Event::Closed>()) {
+            window.close();
+        }
+    }
+}
+
+// Rendering
+void render(sf::RenderWindow& window, const sf::CircleShape& shape) {
+    window.clear(sf::Color::Black); // Black background
+    window.draw(shape);
+    window.display();
+}
+
+// App
+export void app() {
+    sf::RenderWindow window;
+    sf::CircleShape shape;
+
+    // Initialize the window and  circle
+    init(window, shape);
+
+    // Event loop
+    while (window.isOpen()) {
+        process_events(window);
+        render(window, shape);
+    }
+}
+
+} // namespace it_2
 
 */
