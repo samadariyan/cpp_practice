@@ -3,7 +3,7 @@ module;
 
 #include <SFML/Graphics.hpp>
 #include <fmt/format.h>
-#include <iostream>
+// #include <iostream>
 
 export module utilities;
 
@@ -33,9 +33,9 @@ export module utilities;
 // import overloading_2;
 // import overloading_4;
 
-import attributes;
-import static_vars;
-import recursion;
+// import attributes;
+// import static_vars;
+// import recursion;
 
 /*
 export void pointer_basics() {
@@ -504,6 +504,8 @@ export void static_vars_demo() {
 
 */
 
+/*
+
 export void recursion_demo() {
     auto value = recursion::fibonacci(7);
     fmt::println("value: {}", value);
@@ -516,7 +518,7 @@ export void recursion_demo() {
     result = recursion::fibonacci_iterative(10);
     fmt::println("Fibonacci of 10 is: {}", result);
 
-    /*
+    ////
     // Trying to set up a lambda computing fibonacci:
     auto fibonacci_lambda = [](int n) {
         if (n < 2)
@@ -524,23 +526,21 @@ export void recursion_demo() {
         return fibonacci_lambda(n - 1) + fibonacci_lambda(n - 2);
         // Compiler error: Can't mention the lambda name
     };
-    */
+    ////
 
-    // This works
-    auto fibonacci_lambda = [](this auto& self, int n) {
-        if (n < 2)
-            return n;
-        return self(n - 1) + self(n - 2);
-    };
 
-    value = fibonacci_lambda(10);
-    fmt::println("Fibonacci (lambda) of 10 is: {}", value);
+// This works
+auto fibonacci_lambda = [](this auto& self, int n) {
+    if (n < 2)
+        return n;
+    return self(n - 1) + self(n - 2);
+};
+
+value = fibonacci_lambda(10);
+fmt::println("Fibonacci (lambda) of 10 is: {}", value);
 }
 
-/*
- */
-
-/*
+*/
 
 namespace it_1 {
 
@@ -567,7 +567,6 @@ export void app() {
 }
 
 } // namespace it_1
-
 
 namespace it_2 {
 // Initialization
@@ -615,5 +614,7 @@ export void app() {
 }
 
 } // namespace it_2
+
+/*
 
 */
