@@ -632,8 +632,8 @@ export void app() {
 
 /*
     Ftxui based calculator
-*/
-namespace it_1 {
+
+    namespace it_1 {
 using namespace ftxui;
 
 // Functions to do the operations
@@ -709,13 +709,13 @@ export void app() {
 }
 
 } // namespace it_1
+*/
 
 /*
     . Sfml show the distance between points.
     . Distance shown as text.
 */
 
-/*
 namespace it_2 {
 // Function to calculate the Euclidean distance between two points
 double calculate_distance(const double origin[2],
@@ -812,8 +812,6 @@ export void app() {
 }
 
 } // namespace it_2
-
-*/
 
 /*
 
