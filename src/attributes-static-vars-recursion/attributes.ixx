@@ -14,7 +14,10 @@ namespace attributes {
 // the program.
 // The compiler will generate warnings if any code after a [[noreturn]] function
 // is treated as reachable.
-export [[noreturn]] void exit_program() { std::exit(1); }
+export [[noreturn]] void exit_program() {
+
+    std::exit(1); //
+}
 
 //[[deprecated]] (Introduced in C++11, but C++14 added the ability to provide a
 // message) Indicates that a function, class, or variable is deprecated, warning
@@ -48,7 +51,7 @@ export void handle_switch(int value) {
     switch (value) {
     case 1:
         fmt::println("Handling 1");
-        //[[fallthrough]];
+        [[fallthrough]];
     case 2:
         fmt::println("Handling 2");
         break;

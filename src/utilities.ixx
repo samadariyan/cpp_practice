@@ -451,6 +451,8 @@ export void capture_all_by_reference() {
 
 */
 
+/*
+
 export void attributes_demo() {
 
     //[[noretun]]
@@ -458,31 +460,39 @@ export void attributes_demo() {
     attributes::exit_program(); // This call may not return
     fmt::println("Program ends properly");
 
+
     //[[deprecated]]
     attributes::old_function(); // This will generate a warning
     attributes::new_function(); // This will not generate a warning
 
-    //[[nodiscard]]
 
-    // attributes::calculate_value(); // This will generate a warning
-    int result = attributes::calculate_value();
-    // This will not generate a warning
+    //[[nodiscard]]
+    attributes::calculate_value(); // This will generate a warning
+
+    int result =
+        attributes::calculate_value(); // This will not generate a warning
+
 
     //[[fallthrough]]
     attributes::handle_switch(1);
 
-    //[[likely]] and [[unlikely]]
 
+    //[[likely]] and [[unlikely]]
     auto value1 = attributes::process_value(42);
     auto value2 = attributes::process_value(43);
     fmt::println("Value1: {}, Value2: {}", value1, value2);
 
+
     //[[assume]]
     attributes::process_data(5);
 
+
     //[[nodiscard]] with message
-    // attributes::compute_important_value();
+    attributes::compute_important_value();
+
 }
+
+*/
 
 /*
 
@@ -493,8 +503,6 @@ export void static_vars_demo() {
 }
 
 */
-
-/*
 
 export void recursion_demo() {
     auto value = recursion::fibonacci(7);
@@ -508,26 +516,29 @@ export void recursion_demo() {
     result = recursion::fibonacci_iterative(10);
     fmt::println("Fibonacci of 10 is: {}", result);
 
+    /*
     // Trying to set up a lambda computing fibonacci:
-    auto fibonacci_lambda = [](int n){
-        if( n < 2) return n;
-        return fibonacci_lambda( n -1 ) + fibonacci_lambda( n - 2);
-    // Compiler error: Can't mention the lambda name
+    auto fibonacci_lambda = [](int n) {
+        if (n < 2)
+            return n;
+        return fibonacci_lambda(n - 1) + fibonacci_lambda(n - 2);
+        // Compiler error: Can't mention the lambda name
     };
+    */
 
     // This works
     auto fibonacci_lambda = [](this auto& self, int n) {
         if (n < 2)
-        return n;
+            return n;
         return self(n - 1) + self(n - 2);
     };
 
     value = fibonacci_lambda(10);
     fmt::println("Fibonacci (lambda) of 10 is: {}", value);
-
 }
 
-*/
+/*
+ */
 
 /*
 

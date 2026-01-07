@@ -16,8 +16,8 @@ export constexpr int fibonacci(int n) {
 
 // Memoization
 export int fibonacci_memo(int n) {
-    static std::vector<int> memo(
-        100, -1); // Initialize with -1 to indicate uncomputed values
+    static std::vector<int> memo(100, -1);
+    // Initialize with -1 to indicate uncomputed values
 
     if (n == 0)
         return 0;
@@ -25,7 +25,8 @@ export int fibonacci_memo(int n) {
         return 1;
 
     if (memo[n] != -1)
-        return memo[n]; // Return memoized value if available
+        return memo[n];
+    // Return memoized value if available
 
     memo[n] = fibonacci_memo(n - 1) +
               fibonacci_memo(n - 2); // Compute and store the value

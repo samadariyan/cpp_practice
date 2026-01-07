@@ -4,6 +4,7 @@
 #include <fmt/format.h>
 
 import utilities;
+
 // import compare;
 // import math;
 // import parameters;
@@ -382,9 +383,9 @@ int main() {
 
 int main() {
 
-    attributes_demo();
+    // attributes_demo();
     // static_vars_demo();
-    // recursion_demo();
+    recursion_demo();
 }
 
 /*
